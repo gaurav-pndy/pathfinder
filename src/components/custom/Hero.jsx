@@ -67,7 +67,7 @@ const Hero = () => {
       <div className="hero-img  md:w-1/2 flex justify-center ">
         <img
           ref={imgRef}
-          src="src/assets/images/rb_1247.png"
+          src="/rb_1247.png"
           alt="img"
           className="w-[80%] md:w-[90%] "
         />

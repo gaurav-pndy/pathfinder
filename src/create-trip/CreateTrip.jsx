@@ -52,11 +52,7 @@ function CreateTrip() {
       </p>
 
       <div className="ct-img1 img-anim">
-        <img
-          src="src/assets/images/planes.png"
-          alt=""
-          className="scale-100 md:scale-110"
-        />
+        <img src="/planes.png" alt="" className="scale-100 md:scale-110" />
       </div>
 
       <div className="fade-in flex flex-col gap-3 md:gap-11">
@@ -156,7 +152,7 @@ function CreateTrip() {
         </div>
 
         <div className="ct-img2 img-anim absolute top-[26rem] md:top-[19rem] z-0">
-          <img src="src/assets/images/buildings.png" alt="" />
+          <img src="/buildings.png" alt="" />
         </div>
         <GenerateBtn formData={formData} />
       </div>
