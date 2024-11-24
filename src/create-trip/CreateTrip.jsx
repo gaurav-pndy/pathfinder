@@ -127,7 +127,7 @@ function CreateTrip() {
                 <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
                 <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
                 <h2
-                  className={`text-sm md:text-base opacity-90 ${
+                  className={`text-sm md:text-base opacity-80 ${
                     formData.budget === item.title && "  text-gray-300"
                   } `}
                 >
@@ -157,7 +157,7 @@ function CreateTrip() {
                   <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
                   <h2 className="text-xs ">({item.people})</h2>
                   <h2
-                    className={`text-sm md:text-base opacity-90  ${
+                    className={`text-sm md:text-base opacity-80  ${
                       formData.noOfPeople === item.people && "  text-gray-300"
                     } `}
                   >
