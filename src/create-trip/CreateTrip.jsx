@@ -121,7 +121,7 @@ function CreateTrip() {
                 key={idx}
                 onClick={() => handleInputChange("budget", item.title)}
                 className={`p-5 border rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 bg-[#daeeff] flex flex-col md:gap-1 ${
-                  formData.budget === item.title && " bg-[#410d75]  text-white"
+                  formData.budget === item.title && " bg-purple-900  text-white"
                 }`}
               >
                 <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
