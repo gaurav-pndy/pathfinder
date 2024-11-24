@@ -110,7 +110,7 @@ const Header = () => {
           </div>
         ) : (
           <Dialog>
-            <DialogTrigger>
+            <DialogTrigger asChild>
               <Button
                 // onClick={SignInHandler}
                 className="hover:bg-transparent hover:text-black border border-black transition-all duration-300"
@@ -118,13 +118,14 @@ const Header = () => {
                 Sign In
               </Button>
             </DialogTrigger>
-            <DialogContent className="pt-1">
+            <DialogContent className="pt-0">
               <DialogHeader>
+                <DialogTitle></DialogTitle>
                 <DialogDescription>
                   <img src="/logo.svg" className="w-[45%] " />
-                  <h2 className=" text-black font-bold text-lg mt-3">
+                  <span className=" text-black font-bold text-lg mt-3">
                     Sign in with Google
-                  </h2>
+                  </span>
 
                   <Button
                     onClick={login}

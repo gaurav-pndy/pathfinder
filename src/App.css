@@ -22,3 +22,36 @@ body {
 /* .placeImg {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 71.5% 75%, 71.5% 100%, 0 100%);
 } */
+
+.loading-area {
+  display: grid;
+  place-items: center;
+  height: 30vh;
+}
+
+.loader div {
+  transform: scale(0);
+  animation: animate 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(63, 9, 157, 0.6);
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: scale(0.2);
+    background-color: #fff;
+    opacity: 0;
+  }
+
+  40% {
+    transform: scale(1);
+    background-color: rgb(76, 223, 43);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1);
+    background-color: rgb(190, 46, 46);
+    opacity: 0.9;
+  }
+}

@@ -5,13 +5,12 @@ import React, { useState, useEffect } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
-import GenerateBtn from "./GenerateBtn";
+import GenerateTrip from "./GenerateTrip";
 
 function CreateTrip() {
   const [place, setPlace] = useState();
   const [formData, setFormData] = useState([]);
   const navigate = useNavigate();
-  const [placesOpen, setPlacesOpen] = useState(false);
 
   function handleInputChange(name, value) {
     setFormData((prevData) => ({
@@ -19,10 +18,6 @@ function CreateTrip() {
       [name]: value,
     }));
   }
-
-  useEffect(() => {
-    console.log(placesOpen);
-  }, [placesOpen]);
 
   // **************GSAP Animations****************
   useEffect(() => {
@@ -126,12 +121,17 @@ function CreateTrip() {
                 key={idx}
                 onClick={() => handleInputChange("budget", item.title)}
                 className={`p-5 border rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 bg-[#daeeff] flex flex-col md:gap-1 ${
-                  formData.budget === item.title && "border border-black"
+                  formData.budget === item.title &&
+                  "border border-black bg-[#410d75]  text-white"
                 }`}
               >
                 <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
                 <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
-                <h2 className="text-sm md:text-base text-gray-500">
+                <h2
+                  className={`text-sm md:text-base text-gray-500 ${
+                    formData.budget === item.title && "  text-gray-300"
+                  } `}
+                >
                   {item.desc}
                 </h2>
               </div>
@@ -150,13 +150,18 @@ function CreateTrip() {
                   key={idx}
                   onClick={() => handleInputChange("noOfPeople", item.people)}
                   className={`p-5 border rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 bg-[#daeeff] flex flex-col md:gap-1 ${
-                    formData.noOfPeople === item.people && "border border-black"
+                    formData.noOfPeople === item.people &&
+                    "bg-[#870267] text-white"
                   }`}
                 >
                   <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
                   <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
-                  <h2 className="text-xs text-gray-700">({item.people})</h2>
-                  <h2 className="text-sm md:text-base text-gray-500">
+                  <h2 className="text-xs ">({item.people})</h2>
+                  <h2
+                    className={`text-sm md:text-base text-gray-500  ${
+                      formData.noOfPeople === item.people && "  text-gray-300"
+                    }`}
+                  >
                     {item.desc}
                   </h2>
                 </div>
@@ -167,7 +172,7 @@ function CreateTrip() {
           <div className="ct-img2 img-anim absolute top-[26rem] md:top-[19.5rem] z-0">
             <img src="/buildings.png" alt="" />
           </div>
-          <GenerateBtn formData={formData} />
+          <GenerateTrip formData={formData} />
         </div>
       </div>
     </div>

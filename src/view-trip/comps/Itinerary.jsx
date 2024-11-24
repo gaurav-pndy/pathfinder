@@ -25,13 +25,15 @@ const Itinerary = ({ trip }) => {
           const day = trip.tripData.itinerary[dayKey];
 
           return (
-            <div key={index} className=" mt-6 mb-12">
-              <h2 className="font-semibold text-xl">{`Day ${index + 1}: ${
-                day.theme
-              }`}</h2>
-              <p className="text-gray-600 mb-3">Best Time: {day.bestTime}</p>
+            <div key={index} className=" mt-2 mb-12">
+              <h2 className="font-medium md:font-normal  text-xl md:text-3xl">{`Day ${
+                index + 1
+              }: ${day.theme}`}</h2>
+              <p className="text-gray-600 mb-3 md:text-lg">
+                Best Time: {day.bestTime}
+              </p>
 
-              <div className="grid md:grid-cols-2 gap-5 md:gap-8">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                 {day.schedule.map((place, idx) => (
                   <div key={idx}>
                     <Link
