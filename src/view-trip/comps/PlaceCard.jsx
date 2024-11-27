@@ -48,10 +48,10 @@ const PlaceCard = ({ place, trip }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#EAF6FF] h-[40%] "></div>
       </div>
 
-      <div className=" shadow-[-4px_-4px_10px_rgba(0,0,0,0.6)] text-xs leading-5 md:text-base font-bold absolute bottom-0 right-0  rounded-br-lg rounded-tl-2xl h-[30%] md:h-[27%] w-[26%] md:w-[23%] px-1 pt-2 bg-black/60 text-white backdrop-blur-sm">
-        <h2>💵 {place.ticketPricing?.split(/(\(|per)/i)[0]}</h2>
+      <div className="shadow-[-4px_-4px_10px_rgba(0,0,0,0.6)] text-xs md:text-base font-bold absolute bottom-0 right-0 rounded-br-lg rounded-tl-2xl min-h-[30%] md:min-h-[27%] min-w-[25%] md:min-w-[23%] px-1 pt-2 bg-black/60 text-white backdrop-blur-sm leading-5">
+        <h2>💵 {place.ticketPricing?.split(/(\(|,|\.|per)/i)[0]}</h2>
         <h2>⌚ {place.travelTime?.split("(")[0]}</h2>
-        <h2> ⭐ {place.rating}</h2>
+        <h2>⭐ {place.rating}</h2>
       </div>
     </div>
   );
