@@ -17,6 +17,10 @@ Pathfinder is an AI-powered trip planning application designed to create persona
 - **Data Management**:
   - Utilizes **Firebase** for storing user data securely and managing real-time updates.
 
+- **User Authentication**:
+  - Uses **Google Authentication** for secure user login.
+  - Personalized profiles save itineraries, allowing users to access and manage their plans.
+
 ## Technologies Used
 
 - **Frontend**:
@@ -29,16 +33,22 @@ Pathfinder is an AI-powered trip planning application designed to create persona
 
 - **Database**:
   - Firebase: For user data storage, authentication, and real-time updates.
+ 
+- **Authentication**:
+  - Google Auth: Simplifies user authentication and links itineraries to user profiles.
 
 ## How It Works
 
-1. **Input Your Preferences**:
+1. **Log In with Google**:
+   - Sign in using your Google account to create a personalized profile.
+
+2. **Input Your Preferences**:
    - Enter details such as location, trip duration, budget, and group size.
 
-2. **AI-Powered Suggestions**:
+3. **AI-Powered Suggestions**:
    - Gemini AI generates a travel itinerary, suggesting activities, restaurants, and hotels.
 
-3. **Save and Manage**:
+4. **Save and Manage**:
    - Save your itinerary securely using Firebase and access it anytime.
 
 ## Getting Started
