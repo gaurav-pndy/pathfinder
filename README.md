@@ -82,3 +82,6 @@ Pathfinder is an AI-powered trip planning application designed to create persona
    ```bash
    npm start
    ```
+
+
+   **For live demo, go to ([pathfinder](https://pathfinder-eight.vercel.app/))**
