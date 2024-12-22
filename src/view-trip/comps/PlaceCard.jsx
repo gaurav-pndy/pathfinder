@@ -44,7 +44,7 @@ const PlaceCard = ({ place, trip }) => {
           alt=""
           className="placeImg w-full h-[170px] md:h-[260px] object-cover mt-[68px] md:mt-20  border-black"
         />
-        {/* Gradient overlay for fade effect */}
+
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#EAF6FF] h-[40%] "></div>
       </div>
 

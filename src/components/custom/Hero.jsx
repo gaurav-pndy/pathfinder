@@ -59,7 +59,9 @@ const Hero = () => {
         </h3>
         <div ref={buttonRef} className="text-center">
           <Link to={"/create-trip"}>
-            <Button>Get Started</Button>
+            <Button className="bg-slate-800 hover:scale-110 transition-all duration-300">
+              Get Started →
+            </Button>
           </Link>
         </div>
       </div>
