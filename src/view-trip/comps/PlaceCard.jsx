@@ -28,12 +28,14 @@ const PlaceCard = ({ place, trip }) => {
   };
 
   return (
-    <div className="mx-3 md:mx-0 relative  border-t border-gray-200 rounded-2xl shadow-md shadow-slate-400 overflow-hidden md:hover:scale-105 transition-all duration-300">
+    <div className="mx-3 md:mx-0 relative bg-[#c5e1ff]  border-t border-gray-200 rounded-2xl shadow-md shadow-slate-400 overflow-hidden md:hover:scale-105 transition-all duration-300">
       <div className="px-4 pt-2 absolute z-10">
-        <h4 className="text-sm md:text-base font-bold text-orange-600 ">
+        <h4 className="text-sm md:text-lg font-bold text-orange-600 ">
           {place.time}
         </h4>
-        <h2 className="font-bold md:text-xl leading-snug">{place.placeName}</h2>
+        <h2 className="font-bold md:text-2xl leading-snug">
+          {place.placeName}
+        </h2>
         <h2 className="text-gray-800 text-sm md:text-base ">
           {place.placeDetails}
         </h2>
@@ -42,10 +44,10 @@ const PlaceCard = ({ place, trip }) => {
         <img
           src={photoUrl || "/demo.jpg"}
           alt=""
-          className="placeImg w-full h-[170px] md:h-[260px] object-cover mt-[68px] md:mt-20  border-black"
+          className="placeImg w-full h-[170px] md:h-[260px] object-cover mt-[68px] md:mt-20  border-black "
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#EAF6FF] h-[40%] "></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#c5e1ff] h-[40%] "></div>
       </div>
 
       <div className="shadow-[-4px_-4px_10px_rgba(0,0,0,0.6)] text-xs md:text-base font-bold absolute bottom-0 right-0 rounded-br-lg rounded-tl-2xl min-h-[30%] md:min-h-[27%] min-w-[25%] md:min-w-[23%] px-1 pt-2 bg-black/60 text-white backdrop-blur-sm leading-5">

@@ -3,25 +3,38 @@
 /* .header {
   box-shadow: 0px 2px 30px -5px rgba(0, 0, 0, 0.534); 
 } */
+
 :root,
 body {
-  background-color: #eaf6ff;
+  position: relative;
+  margin: 0;
+  min-height: 100vh; /* Change height to min-height to allow scrolling */
+  overflow: auto; /* Ensure content that overflows is scrollable */
+  background-color: rgba(174, 188, 252, 0.3);
 }
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("travelbg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.5; /* Adjust the value to change opacity */
+  z-index: -1;
+}
+
 .hero-text h2 {
   font-family: "Philosopher", serif;
   line-height: 130%;
 }
 
 .stroked-text {
-  /* Text color */
-  text-shadow: -1px -1px 0 black, /* Top-left */ 1px -1px 0 black,
-    /* Top-right */ -1px 1px 0 black, /* Bottom-left */ 2px 2px 0 black; /* Bottom-right */
-  /* font-size: 2rem; */
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    2px 2px 0 black;
 }
-
-/* .placeImg {
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 71.5% 75%, 71.5% 100%, 0 100%);
-} */
 
 .loading-area {
   display: grid;

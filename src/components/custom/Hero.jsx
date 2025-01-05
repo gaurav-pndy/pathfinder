@@ -40,38 +40,45 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex justify-center md:mx-3 lg:mx-28 mt-20 md:mt-36 items-center  flex-col-reverse md:flex-row bg-[#EAF6FF]">
-      <div className="hero-text md:w-1/2 px-5 lg:px-8 mb-3 ">
+    <div className="flex justify-center sm:mx-3 lg:mx-28 mt-20 sm:mt-32 items-center  flex-col-reverse sm:flex-row ">
+      <div className="hero-text sm:w-1/2 px-5 lg:px-2 mb-3 ">
         <h2
           ref={textRef}
-          className="text-center text-[1.6rem] md:text-[2rem] lg:text-[3rem] font-bold text-purple-950"
+          className="text-center text-[1.6rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[3.3rem] font-bold text-purple-950"
         >
           Unlock Your Perfect Journey with Pathfinder:
         </h2>
         <h3
           ref={subtextRef}
-          className="text-center text-[1rem] md:text-[0.9rem] lg:text-[1.5rem] mb-4 lg:px-5 text-gray-500"
+          className="text-center text-[1rem] md:text-[0.9rem] lg:text-[1.5rem] mb-6 lg:px-5 text-gray-500"
         >
           Plan, explore, and make every journey unforgettable. Your perfect trip
           starts here - <br />
           Find the best destinations and personalized itineraries on your
           fingertips.
         </h3>
-        <div ref={buttonRef} className="text-center">
+        <div ref={buttonRef} className="text-center flex justify-center">
           <Link to={"/create-trip"}>
-            <Button className="bg-slate-800 hover:scale-110 transition-all duration-300">
-              Get Started →
+            <Button variant="customBtn">
+              <>
+                <span className="transition-all duration-1000 md:group-hover:hidden">
+                  Get Started
+                </span>
+                <span className="group-hover:scale-[500%] transition-transform duration-500">
+                  ✈️
+                </span>
+              </>
             </Button>
           </Link>
         </div>
       </div>
 
-      <div className="hero-img  md:w-1/2 flex justify-center ">
+      <div className="hero-img  sm:w-1/2 flex justify-center ">
         <img
           ref={imgRef}
           src="/rb_1247.png"
           alt="img"
-          className="w-[80%] md:w-[90%] "
+          className="w-[80%] sm:w-[100%] "
         />
       </div>
     </div>

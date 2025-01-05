@@ -73,15 +73,16 @@ function CreateTrip() {
                 styles: {
                   control: (base) => ({
                     ...base,
-                    border: "1px solid #D1D5DB",
-                    background: "#EAF6FF",
-                    boxShadow: "inset 0 1px 3px rgba(0, 0, 0, 0.1)",
+
+                    background: "#c1e2ff",
+                    boxShadow: "inset 0 2px 3px #1e3a8a7a",
                     borderRadius: "1rem",
                     padding: "0.8rem 0.7rem",
                     color: "#1F2937",
                     fontSize: "1.2rem",
                     transition: "all 0.3s ease",
                     zIndex: "100",
+                    cursor: "text",
                   }),
                   placeholder: (base) => ({
                     ...base,
@@ -104,7 +105,7 @@ function CreateTrip() {
               How many days of adventure?
             </h2>
             <Input
-              className="border text-lg md:text-lg pl-7 border-gray-300 bg-[#EAF6FF] shadow-inner rounded-2xl py-8 text-gray-80 placeholder:text-base md:placeholder:text-lg placeholder-gray-500 transition-all duration-300"
+              className=" text-lg md:text-lg pl-7  bg-[#c1e2ff] shadow-inner  shadow-[#1e3a8a7a] rounded-2xl py-8 text-gray-80 placeholder:text-base md:placeholder:text-lg placeholder-gray-500 transition-all duration-300"
               placeholder="📅 Type a number and let the countdown begin!"
               onChange={(e) => handleInputChange("noOfDays", e.target.value)}
             />
@@ -120,9 +121,11 @@ function CreateTrip() {
               <div
                 key={idx}
                 onClick={() => handleInputChange("budget", item.title)}
-                className={`p-5 border rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 bg-[#daeeff] flex flex-col md:gap-1 ${
-                  formData.budget === item.title && " bg-purple-950  text-white"
-                }`}
+                className={`p-5 shadow-md rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
+                  formData.budget === item.title
+                    ? "bg-purple-950 text-white"
+                    : "bg-[#c4c0ff]"
+                } flex flex-col md:gap-1`}
               >
                 <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
                 <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
@@ -148,10 +151,11 @@ function CreateTrip() {
                 <div
                   key={idx}
                   onClick={() => handleInputChange("noOfPeople", item.people)}
-                  className={`p-5 border rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 bg-[#daeeff] flex flex-col md:gap-1 ${
-                    formData.noOfPeople === item.people &&
-                    "bg-pink-900 text-white"
-                  }`}
+                  className={`p-5 shadow-md rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
+                    formData.noOfPeople === item.people
+                      ? "bg-pink-900 text-white"
+                      : "bg-[#c4c0ff]"
+                  } flex flex-col md:gap-1`}
                 >
                   <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
                   <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
@@ -168,10 +172,10 @@ function CreateTrip() {
             </div>
           </div>
 
-          <div className="ct-img2 img-anim absolute top-[26rem] md:top-[19.5rem] z-0">
+          <GenerateTrip formData={formData} />
+          <div className="ct-img2 img-anim mt-4 md:-mt-28 z-0">
             <img src="/buildings.png" alt="" />
           </div>
-          <GenerateTrip formData={formData} />
         </div>
       </div>
     </div>
