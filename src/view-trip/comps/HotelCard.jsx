@@ -39,10 +39,10 @@ const HotelCard = ({ hotel }) => {
       />
       <div className="flex flex-col md:flex-row justify-between items-end md:items-center relative  ">
         <div className=" my-1 md:my-2">
-          <h2 className="font-semibold text-sm md:text-base pr-5">
+          <h2 className="font-semibold text-sm md:text-xl pr-5">
             {hotel?.hotelName}
           </h2>
-          <h2 className="text-xs text-gray-600"> 📍{hotel?.hotelAddress}</h2>
+          <h2 className="text-xs  text-gray-600"> 📍{hotel?.hotelAddress}</h2>
           <h2 className=" text-xs md:text-sm">
             {" "}
             💵

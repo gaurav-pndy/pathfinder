@@ -47,7 +47,12 @@ const GenerateTrip = ({ formData }) => {
       !formData.budget ||
       !formData.noOfPeople
     ) {
-      toast("Please fill all details");
+      toast("Please fill all details", {
+        style: {
+          backgroundColor: "darkred",
+          color: "#fff",
+        },
+      });
       return;
     }
 
@@ -115,7 +120,7 @@ const GenerateTrip = ({ formData }) => {
 
   return (
     <div>
-      <div className="items-center flex flex-col md:flex-row justify-between w-full mt-0 mb-24 fade-in">
+      <div className="items-center flex flex-col md:flex-row justify-between w-full mt-0  absolute fade-in z-10">
         <div>
           <h2 className="hidden md:inline">
             <span className="text-3xl md:text-4xl block md:inline">🎉</span>

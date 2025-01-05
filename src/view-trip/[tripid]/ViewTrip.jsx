@@ -22,7 +22,7 @@ const ViewTrip = () => {
     if (docSnap.exists()) {
       setTrip(docSnap.data());
     } else {
-      console.log("EError");
+      console.log("Error");
     }
   };
 

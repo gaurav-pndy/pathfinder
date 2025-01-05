@@ -10,8 +10,7 @@ const GenerateBtn = React.forwardRef(
         ref={ref} // Forward the ref to the wrapper
         disabled={loading}
         onClick={asChild ? undefined : onGenerateTrip}
-        className="generate-btn group md:w-[200px] md:h-[60px] md:text-lg font-semibold rounded-lg flex items-center justify-center transition-all duration-300 
-                    bg-gradient-to-r from-black to-purple-800 text-white hover:shadow-md hover:bg-gradient-to-l active:scale-95"
+        variant="customBtn"
       >
         {loading ? (
           "Generating..."

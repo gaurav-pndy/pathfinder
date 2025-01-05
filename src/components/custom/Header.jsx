@@ -20,20 +20,12 @@ import { useUser } from "@/context/UserContext";
 
 const Header = () => {
   const { user, setUser } = useUser();
-
-  // const [openDialog, setopenDialog] = useState(false);
+  const [bgColor, setBgColor] = useState("transparent"); // Initial background color is transparent
 
   const login = useGoogleLogin({
     onSuccess: (codeResp) => getUserProfile(codeResp),
     onError: (error) => console.log(error),
   });
-
-  // function SignInHandler() {
-  //   if (!user) {
-  //     setopenDialog(true);
-  //     return;
-  //   }
-  // }
 
   function getUserProfile(tokenInfo) {
     axios
@@ -50,28 +42,46 @@ const Header = () => {
         console.log(resp);
         localStorage.setItem("user", JSON.stringify(resp.data));
         setUser(resp.data);
-        // setopenDialog(false);
       });
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("Scroll triggered");
+      console.log(window.scrollY);
+      if (window.scrollY > 0) {
+        setBgColor("#cce1fb");
+      } else {
+        setBgColor("transparent");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="header px-2 py-2 md:py-0 fixed top-0 w-full  md:px-10 lg:px-20  flex justify-between items-center bg-[#EAF6FF] z-20 shadow-sm ">
+    <div
+      className={`header px-2 py-2 md:py-0 fixed top-0 w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all bg-[${bgColor}] ${
+        bgColor !== "transparent" ? "shadow-md" : ""
+      } backdrop-blur-xl`}
+    >
       <img
         onClick={() => (window.location.href = "/")}
-        className="w-[40%] md:w-auto cursor-pointer"
+        className="w-[40%] sm:w-[30%] lg:w-[22%] cursor-pointer"
         src="/logo.svg"
         alt=""
       />
       <div>
         {user ? (
-          <div
-            className="flex gap-2 md:gap-7 items-center
-          "
-          >
+          <div className="flex gap-2 md:gap-7 items-center">
             <a href="/create-trip">
               <Button
                 variant="outline"
-                className="border border-black bg-transparent hover:bg-black hover:text-white  transition-all duration-300 text-[10px] px-2 h-8 md:h-10 md:text-base"
+                className="border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[10px] px-2 h-8 md:h-12 md:text-lg"
               >
                 🞤 Create New Trip
               </Button>
@@ -79,7 +89,7 @@ const Header = () => {
             <a href="/my-trips">
               <Button
                 variant="outline"
-                className="bg-blue-300 hover:bg-blue-800 hover:text-white  transition-all duration-300 text-[10px] px-4 h-8 md:h-10 md:text-base"
+                className="bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[10px] px-4 h-8 md:h-12 md:text-lg"
               >
                 My Trips{" "}
               </Button>
@@ -87,14 +97,13 @@ const Header = () => {
 
             <Popover>
               <PopoverTrigger>
-                {" "}
                 <img
                   src={user.picture}
                   alt=""
-                  className=" w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full border cursor-pointer"
+                  className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer"
                 />
               </PopoverTrigger>
-              <PopoverContent className="w-auto h-auto py-2 bg-black text-white cursor-pointer">
+              <PopoverContent className="w-auto mt-2 py-2 bg-black text-white cursor-pointer text-[10px] px-4 h-8 md:h-12 md:text-lg">
                 <h2
                   onClick={() => {
                     googleLogout();
@@ -111,10 +120,7 @@ const Header = () => {
         ) : (
           <Dialog>
             <DialogTrigger asChild>
-              <Button
-                // onClick={SignInHandler}
-                className="hover:bg-transparent hover:text-black border border-black transition-all duration-300"
-              >
+              <Button className="hover:bg-transparent hover:text-black border border-black transition-all duration-300">
                 Sign In
               </Button>
             </DialogTrigger>
@@ -122,8 +128,8 @@ const Header = () => {
               <DialogHeader>
                 <DialogTitle></DialogTitle>
                 <DialogDescription>
-                  <img src="/logo.svg" className="w-[45%] " />
-                  <span className=" text-black font-bold text-lg mt-3">
+                  <img src="/logo.svg" className="w-[45%]" />
+                  <span className="text-black font-bold text-lg mt-3">
                     Sign in with Google
                   </span>
 
