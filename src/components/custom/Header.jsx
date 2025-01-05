@@ -47,8 +47,6 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("Scroll triggered");
-      console.log(window.scrollY);
       if (window.scrollY > 0) {
         setBgColor("#cce1fb");
       } else {
