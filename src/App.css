@@ -43,6 +43,10 @@ body::before {
   line-height: 130%;
 }
 
+.hot-dest h1 {
+  font-family: "Prompt", serif;
+}
+
 .stroked-text {
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
     2px 2px 0 black;
