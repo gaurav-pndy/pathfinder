@@ -1,15 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* .header {
-  box-shadow: 0px 2px 30px -5px rgba(0, 0, 0, 0.534); 
-} */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
 
 :root,
 body {
   position: relative;
   margin: 0;
-  min-height: 100vh; /* Change height to min-height to allow scrolling */
-  overflow: auto; /* Ensure content that overflows is scrollable */
+  min-height: 100vh;
+  overflow: auto;
   background-color: rgba(174, 188, 252, 0.3);
 }
 
@@ -22,7 +34,7 @@ body::before {
   height: 100%;
   background: url("/travelbg.jpg") no-repeat center center fixed;
   background-size: cover;
-  opacity: 0.5; /* Adjust the value to change opacity */
+  opacity: 0.5;
   z-index: -1;
 }
 

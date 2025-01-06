@@ -17,6 +17,7 @@ import {
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useUser } from "@/context/UserContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { user, setUser } = useUser();
@@ -62,10 +63,10 @@ const Header = () => {
   }, []);
 
   return (
-    <div
-      className={`header px-2 py-2 md:py-0 fixed top-0 w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all bg-[${bgColor}] ${
-        bgColor !== "transparent" ? "shadow-md" : ""
-      } backdrop-blur-xl`}
+    <nav
+      className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all bg-[${bgColor}] ${
+        bgColor !== "transparent" ? "shadow-md backdrop-blur-xl" : ""
+      } `}
     >
       <img
         onClick={() => (window.location.href = "/")}
@@ -76,22 +77,22 @@ const Header = () => {
       <div>
         {user ? (
           <div className="flex gap-2 md:gap-7 items-center">
-            <a href="/create-trip">
+            <Link to={"/create-trip"}>
               <Button
                 variant="outline"
                 className="border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[10px] px-2 h-8 md:h-12 md:text-lg"
               >
                 🞤 Create New Trip
               </Button>
-            </a>
-            <a href="/my-trips">
+            </Link>
+            <Link to="/my-trips">
               <Button
                 variant="outline"
                 className="bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[10px] px-4 h-8 md:h-12 md:text-lg"
               >
                 My Trips{" "}
               </Button>
-            </a>
+            </Link>
 
             <Popover>
               <PopoverTrigger>
@@ -118,7 +119,7 @@ const Header = () => {
         ) : (
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="hover:bg-transparent hover:text-black border border-black transition-all duration-300">
+              <Button className="hover:bg-transparent hover:text-black border border-black transition-all duration-300  text-[10px] px-4 h-8 md:h-12 md:text-lg">
                 Sign In
               </Button>
             </DialogTrigger>
@@ -144,7 +145,7 @@ const Header = () => {
           </Dialog>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

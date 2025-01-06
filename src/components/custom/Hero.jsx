@@ -40,7 +40,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex justify-center sm:mx-3 lg:mx-28 mt-20 sm:mt-32 items-center  flex-col-reverse sm:flex-row ">
+    <div className="flex justify-center sm:mx-3 lg:mx-40 mt-20 sm:mt-32 items-center  flex-col-reverse sm:flex-row ">
       <div className="hero-text sm:w-1/2 px-5 lg:px-2 mb-3 ">
         <h2
           ref={textRef}
