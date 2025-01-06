@@ -7,10 +7,9 @@ import MyTripCard from "./MyTripCard";
 
 const MyTrips = () => {
   const { user } = useUser();
-
   const navigate = useNavigate();
-
   const [userTrips, setUserTrips] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     GetUserTrips();
@@ -27,26 +26,37 @@ const MyTrips = () => {
       where("userEmail", "==", user?.email)
     );
     const querySnapshot = await getDocs(q);
-    setUserTrips([]);
+    const trips = [];
     querySnapshot.forEach((doc) => {
-      //   console.log(doc.id, " => ", doc.data());
-      setUserTrips((prev) => [...prev, doc.data()]);
+      trips.push(doc.data());
     });
+    setUserTrips(trips);
+    setLoading(false);
   }
+
   return (
     <div className="px-4 md:px-28 lg:px-56 mt-20 md:mt-36">
       <h2 className="font-bold text-3xl">My trips</h2>
-
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mt-6">
-        {userTrips?.length > 0
-          ? userTrips.map((trip, idx) => <MyTripCard key={idx} trip={trip} />)
-          : [1, 2, 3, 4, 5, 6].map((item, ind) => (
-              <div
-                key={ind}
-                className="h-[240px] w-full bg-slate-200 animate-pulse rounded-xl"
-              ></div>
-            ))}
-      </div>
+      {loading ? (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mt-6">
+          {[1, 2, 3, 4, 5, 6].map((item, ind) => (
+            <div
+              key={ind}
+              className="h-[240px] w-full bg-cyan-600 animate-pulse rounded-xl"
+            ></div>
+          ))}
+        </div>
+      ) : userTrips.length > 0 ? (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mt-6">
+          {userTrips.map((trip, idx) => (
+            <MyTripCard key={idx} trip={trip} />
+          ))}
+        </div>
+      ) : (
+        <div className="mt-6 h-[45vh] flex justify-center items-center font-semibold text-3xl text-cyan-600">
+          <p>You have not created any trips yet :(</p>
+        </div>
+      )}
     </div>
   );
 };
