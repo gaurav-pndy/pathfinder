@@ -40,7 +40,6 @@ const Header = () => {
         }
       )
       .then((resp) => {
-        console.log(resp);
         localStorage.setItem("user", JSON.stringify(resp.data));
         setUser(resp.data);
       });
@@ -68,19 +67,20 @@ const Header = () => {
         bgColor !== "transparent" ? "shadow-md backdrop-blur-xl" : ""
       } `}
     >
-      <img
-        onClick={() => (window.location.href = "/")}
-        className="w-[40%] sm:w-[30%] lg:w-[22%] cursor-pointer"
-        src="/logo.svg"
-        alt=""
-      />
+      <Link>
+        <img
+          className="w-[90%] sm:w-[80%] md:w-[100%] cursor-pointer"
+          src="/logo.svg"
+          alt=""
+        />
+      </Link>
       <div>
         {user ? (
           <div className="flex gap-2 md:gap-7 items-center">
             <Link to={"/create-trip"}>
               <Button
                 variant="outline"
-                className="border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[10px] px-2 h-8 md:h-12 md:text-lg"
+                className="border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[9px] px-1 sm:px-2 h-7 md:h-12 md:text-lg"
               >
                 🞤 Create New Trip
               </Button>
@@ -88,7 +88,7 @@ const Header = () => {
             <Link to="/my-trips">
               <Button
                 variant="outline"
-                className="bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[10px] px-4 h-8 md:h-12 md:text-lg"
+                className="bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-7 md:h-12 md:text-lg"
               >
                 My Trips{" "}
               </Button>
@@ -99,7 +99,7 @@ const Header = () => {
                 <img
                   src={user.picture}
                   alt=""
-                  className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer"
+                  className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
                 />
               </PopoverTrigger>
               <PopoverContent className="w-auto mt-2 py-2 bg-black text-white cursor-pointer text-[10px] px-4 h-8 md:h-12 md:text-lg">
