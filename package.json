@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/merriweather": "^5.1.0",
     "@google/generative-ai": "^0.21.0",
+    "@gsap/react": "^2.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-popover": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",

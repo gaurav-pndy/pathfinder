@@ -24,7 +24,6 @@ import Loader from "./Loader";
 const GenerateTrip = ({ formData }) => {
   const { user, setUser } = useUser();
   const [openDialog, setOpenDialog] = useState(false);
-  const [openDrawer, setOpenDrawer] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 

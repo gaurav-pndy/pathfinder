@@ -1,12 +1,12 @@
 import "./App.css";
 
-import Hero from "./components/custom/Hero";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CreateTrip from "./create-trip/CreateTrip";
-import ViewTrip from "./view-trip/[tripid]/ViewTrip";
-import MyTrips from "./my-trips/MyTrips";
+import CreateTrip from "./pages/create-trip/CreateTrip";
+
+import MyTrips from "./pages/my-trips/MyTrips";
 import AppLayout from "./layout/AppLayout";
+import ViewTrip from "./pages/view-trip/[tripid]/ViewTrip";
+import HomePage from "./pages/home/HomePage";
 
 function App() {
   const router = createBrowserRouter(
@@ -16,7 +16,7 @@ function App() {
         children: [
           {
             path: "/",
-            element: <Hero />,
+            element: <HomePage />,
           },
           {
             path: "/create-trip",
