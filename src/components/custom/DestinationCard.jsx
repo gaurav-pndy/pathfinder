@@ -25,13 +25,21 @@ const DestinationCard = ({ destination }) => {
     });
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center mt-10 h-64">
+        <img src="binocular.gif" alt="Loading..." className="w-20" />
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10">
       <img
-        src={photoUrl || "/destinationDemo.jpg"}
-        className="w-full h-64 object-cover rounded-lg"
+        src={photoUrl || "/binoculars.gif"}
+        className="w-96 h-96 object-cover "
       />
-      <h2 className="mt-1 text-2xl font-semibold text-center text-sky-900">
+      <h2 className=" dest-card-text mt-2 text-3xl  text-center text-slate-700 py-4">
         {destination.displayName.text}
       </h2>
     </div>

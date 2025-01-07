@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import {
   Popover,
@@ -18,6 +18,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useUser } from "@/context/UserContext";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 
 const Header = () => {
   const { user, setUser } = useUser();
@@ -61,6 +62,23 @@ const Header = () => {
     };
   }, []);
 
+  const logoRef = useRef(null);
+  const navRef = useRef();
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      logoRef.current,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+    ).fromTo(
+      navRef.current,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 1 },
+      "-=0.5"
+    );
+  }, []);
+
   return (
     <nav
       className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all bg-[${bgColor}] ${
@@ -72,11 +90,12 @@ const Header = () => {
           className="w-[90%] sm:w-[80%] md:w-[100%] cursor-pointer"
           src="/logo.svg"
           alt=""
+          ref={logoRef}
         />
       </Link>
       <div>
         {user ? (
-          <div className="flex gap-2 md:gap-7 items-center">
+          <div ref={navRef} className="flex gap-2 md:gap-7 items-center">
             <Link to={"/create-trip"}>
               <Button
                 variant="outline"
