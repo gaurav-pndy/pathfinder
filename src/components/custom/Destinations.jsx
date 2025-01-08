@@ -74,11 +74,11 @@ const Destinations = () => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <div className="hot-dest py-14 sm:py-6  z-30 h-screen  ">
-      <h1 className=" text-4xl sm:text-5xl text-orange-300 font-extrabold  text-center  flex justify-center items-end">
+    <div className="hot-dest py-14 sm:py-6  z-30 h-screen sm:h-[110vh]  ">
+      <h2 className=" text-4xl sm:text-5xl text-orange-300 font-extrabold  text-center  flex justify-center items-end">
         <span className="dest-head "> Hot Destinations </span>{" "}
         <img src="fire.gif" alt="" className="w-12 sm:w-16" />
-      </h1>
+      </h2>
       {loading ? (
         <div className="flex justify-center items-center mt-12">
           <img src="binocular.gif" alt="Loading..." className="w-40" />

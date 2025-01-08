@@ -50,7 +50,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
-        setBgColor("#b7d3fac9");
+        setBgColor("#b7d3fa");
       } else {
         setBgColor("transparent");
       }
@@ -84,7 +84,7 @@ const Header = () => {
     <nav
       ref={navRef}
       className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all rounded-b-[20%] sm:rounded-b-[30%]   bg-[${bgColor}] ${
-        bgColor !== "transparent" && "shadow-xl backdrop-blur-3xl"
+        bgColor !== "transparent" && "shadow-xl"
       } `}
     >
       <Link>

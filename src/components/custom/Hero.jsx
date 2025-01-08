@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 
 const Hero = () => {
+  const heroRef = useRef(null);
   const textRef = useRef(null);
   const subtextRef = useRef(null);
   const buttonRef = useRef(null);
@@ -13,7 +14,7 @@ const Hero = () => {
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.fromTo(
-      videoRef.current,
+      heroRef.current,
       { opacity: 0, scale: 2 },
       { opacity: 1, scale: 1, duration: 1, ease: "power3.out", delay: 1 }
     )
@@ -42,7 +43,6 @@ const Hero = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          e;
           video.play();
         } else {
           video.pause();
@@ -66,10 +66,10 @@ const Hero = () => {
 
   return (
     <div
-      ref={videoRef}
+      ref={heroRef}
       className=" hero-section flex justify-center items-center flex-col-reverse sm:flex-row  rounded-b-full sm:rounded-b-[10%] "
     >
-      <video autoPlay loop muted>
+      <video ref={videoRef} autoPlay loop muted>
         <source src="herobgvideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>

@@ -15,9 +15,7 @@ const HomeCard = ({ image, title, desc }) => {
       duration: 0.8,
       scrollTrigger: {
         trigger: cardRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none none",
+        start: "top 90%",
       },
     });
   }, []);

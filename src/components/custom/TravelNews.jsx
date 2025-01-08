@@ -1,11 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import NewsCard from "./NewsCard";
 
 const TravelNews = () => {
+  const newsApiKey = import.meta.env.VITE_NEWSDATA_API_KEY;
+
+  const [newsArray, setNewsArray] = useState([]);
+
+  useEffect(() => {
+    const fetchTravelNews = async () => {
+      try {
+        const response = await fetch(
+          `https://newsdata.io/api/1/latest?apiKey=${newsApiKey}&category=tourism&language=en`
+        );
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        setNewsArray(data.results);
+        console.log("newsArray");
+      } catch (error) {
+        console.error("Failed to fetch travel news:", error);
+      }
+    };
+
+    fetchTravelNews();
+  }, []);
+
   return (
-    <div>
-      {heroImages.map(({ path, id }) => (
-        <img src={path} key={id} />
-      ))}
+    <div className="my-16 sm:px-20">
+      <h2 className="text-4xl sm:text-5xl text-blue-950 font-bold mb-8 flex  items-center">
+        What's New in Travel{" "}
+        <img src="question-mark.gif" alt="" className="h-24" />
+      </h2>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        {newsArray?.slice(0, 6).map((news) => (
+          <NewsCard key={news.article_id} news={news} />
+        ))}
+      </div>
     </div>
   );
 };
