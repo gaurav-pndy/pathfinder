@@ -33,9 +33,9 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/travelbg.jpg") no-repeat center center fixed;
+  background: url("travelbg.jpg") no-repeat center center fixed;
   background-size: cover;
-  opacity: 0.3;
+  opacity: 0.6;
   z-index: -1;
 }
 
@@ -78,7 +78,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 99vh;
-  background: linear-gradient(rgba(0, 1, 44, 0.2), rgba(0, 7, 39, 0.8));
+  background: linear-gradient(rgba(0, 1, 44, 0.3), rgba(0, 7, 39, 0.6));
   z-index: 1;
 }
 
