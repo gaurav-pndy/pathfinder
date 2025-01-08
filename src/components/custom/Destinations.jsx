@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import DestinationCard from "./DestinationCard";
 import { GetDestinations } from "@/service/GlobalAPI";
@@ -46,8 +45,6 @@ const Destinations = () => {
 
     const handleStop = () => {
       if (autoplayPlugin) autoplayPlugin.stop();
-
-      console.log("stop");
     };
 
     const observer = new IntersectionObserver(
@@ -77,18 +74,18 @@ const Destinations = () => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <div className="hot-dest pt-16 pb-8 z-30 h-screen sm:h-[110vh]">
+    <div className="hot-dest py-14 sm:py-6  z-30 h-screen  ">
       <h1 className=" text-4xl sm:text-5xl text-orange-300 font-extrabold  text-center  flex justify-center items-end">
-        <span className="dest-head"> Hot Destinations </span>{" "}
+        <span className="dest-head "> Hot Destinations </span>{" "}
         <img src="fire.gif" alt="" className="w-12 sm:w-16" />
       </h1>
       {loading ? (
-        <div className="flex justify-center items-center mt-10">
+        <div className="flex justify-center items-center mt-12">
           <img src="binocular.gif" alt="Loading..." className="w-40" />
         </div>
       ) : (
         <>
-          <section ref={carouselRef} className="embla relative  mt-12 sm:mt-0 ">
+          <section ref={carouselRef} className="embla relative  my-12 sm:my-0 ">
             <div className="embla__viewport  overflow-hidden" ref={emblaRef}>
               <div className="embla__container  ">
                 {destinations.slice(0, 6).map((destination, index) => (
@@ -115,7 +112,7 @@ const Destinations = () => {
             </div>
           </section>
           <Link to={"/create-trip"}>
-            <Button variant="customBtn" className="mx-auto ">
+            <Button variant="customBtn" className="mx-auto animate-bounce ">
               <>
                 <span className="transition-all duration-1000 md:group-hover:hidden">
                   Plan a trip Now

@@ -1,5 +1,4 @@
 import React from "react";
-import heroImages from "../../data/heroImages.json";
 
 const TravelNews = () => {
   return (

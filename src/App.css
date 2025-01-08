@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Irish+Grover&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Irish+Grover&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar:hover {
@@ -22,9 +22,8 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow: auto;
-  background-color: rgba(174, 188, 252, 0.3);
+  background-color: rgba(216, 224, 255, 0.3);
   font-family: "Ubuntu", serif;
-
 }
 
 body::before {
@@ -36,36 +35,62 @@ body::before {
   height: 100%;
   background: url("/travelbg.jpg") no-repeat center center fixed;
   background-size: cover;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: -1;
 }
 
 .hero-text h2 {
   font-family: "Philosopher", serif;
   line-height: 130%;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.685);
 }
 
 .hot-dest {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/destinationBg.jpg");
+  background-image: linear-gradient(rgba(0, 10, 23, 0.7), rgba(1, 6, 25, 0.7)),
+    url("/destinationBg.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-
 }
 
-.hot-dest h1 .dest-head{
+.hero-section {
+  position: relative;
+  height: 99vh;
+  overflow: hidden;
+}
+
+.hero-section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99vh;
+  background: linear-gradient(rgba(0, 1, 44, 0.2), rgba(0, 7, 39, 0.8));
+  z-index: 1;
+}
+
+.hot-dest h1 .dest-head {
   font-family: "Philosopher", serif;
   text-shadow: 2px 2px 6px rgba(91, 24, 2, 0.4);
 
   background: linear-gradient(90deg, yellow, orangered);
-  
+
   -webkit-text-fill-color: transparent;
   background-clip: text;
-
-
- }
+}
 
 .stroked-text {
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
@@ -105,28 +130,12 @@ body::before {
   }
 }
 
-
-@keyframes appear {
-  0%{
-    opacity: 0;
-    scale: 0.5;
-  }
-  100%{
-    opacity: 1;
-    scale: 1;
-  }
-}
-
-
-
-
-.dest-card-text{
-  font-family: 'Caveat', cursive; 
+.dest-card-text {
+  font-family: "Caveat", cursive;
   font-weight: 700;
 }
 
-
- .embla__hero {
+.embla__hero {
   overflow: hidden;
 }
 /*
@@ -136,12 +145,11 @@ body::before {
 
 .embla__slide__hero {
   position: relative;
-  flex: 0 0 100%; 
+  flex: 0 0 100%;
 }
 
 .embla {
-overflow: hidden;
-
+  overflow: hidden;
 
   --slide-spacing: 3rem;
   --slide-size: 28%;
@@ -162,11 +170,8 @@ overflow: hidden;
 }
 
 @media (max-width: 640px) {
-
   .embla__slide {
-
     flex: 0 0 90%;
-   
   }
 }
 
@@ -189,7 +194,6 @@ overflow: hidden;
   align-items: center;
 } */
 .embla__button {
- 
   appearance: none;
   background-color: transparent;
   touch-action: manipulation;

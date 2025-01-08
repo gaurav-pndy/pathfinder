@@ -41,7 +41,7 @@ function CreateTrip() {
   }, []);
 
   return (
-    <div className="px-4 md:px-28 lg:px-56 mt-28 md:mt-36">
+    <div className="px-4 md:px-28 lg:px-56 mt-28 md:mt-36 create-trip-cont">
       <h2 className="font-bold text-3xl md:text-4xl fade-in">
         Tell Us About Your Dream Getaway! 🌍✨
       </h2>

@@ -19,10 +19,11 @@ import axios from "axios";
 import { useUser } from "@/context/UserContext";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Header = () => {
   const { user, setUser } = useUser();
-  const [bgColor, setBgColor] = useState("transparent"); // Initial background color is transparent
+  const [bgColor, setBgColor] = useState("transparent");
 
   const login = useGoogleLogin({
     onSuccess: (codeResp) => getUserProfile(codeResp),
@@ -49,7 +50,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
-        setBgColor("#cce1fb");
+        setBgColor("#b7d3fac9");
       } else {
         setBgColor("transparent");
       }
@@ -62,44 +63,44 @@ const Header = () => {
     };
   }, []);
 
-  const logoRef = useRef(null);
   const navRef = useRef();
 
-  useEffect(() => {
-    const tl = gsap.timeline();
-    tl.fromTo(
-      logoRef.current,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
-    ).fromTo(
-      navRef.current,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 1 },
-      "-=0.5"
-    );
-  }, []);
+  useGSAP(
+    () => {
+      gsap.from(".stagger-class", {
+        opacity: 0,
+        y: -100,
+        duration: 1,
+        ease: "power2.inOut",
+        stagger: {
+          each: 0.3,
+        },
+      });
+    },
+    { scope: navRef }
+  );
 
   return (
     <nav
-      className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all bg-[${bgColor}] ${
-        bgColor !== "transparent" ? "shadow-md backdrop-blur-xl" : ""
+      ref={navRef}
+      className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all rounded-b-[20%] sm:rounded-b-[30%]   bg-[${bgColor}] ${
+        bgColor !== "transparent" && "shadow-xl backdrop-blur-3xl"
       } `}
     >
       <Link>
         <img
-          className="w-[90%] sm:w-[80%] md:w-[100%] cursor-pointer"
+          className=" stagger-class w-[80%] sm:w-[80%] md:w-[100%] cursor-pointer"
           src="/logo.svg"
           alt=""
-          ref={logoRef}
         />
       </Link>
-      <div>
+      <div className="stagger-class">
         {user ? (
-          <div ref={navRef} className="flex gap-2 md:gap-7 items-center">
+          <div className="flex gap-2 md:gap-7 items-center">
             <Link to={"/create-trip"}>
               <Button
                 variant="outline"
-                className="border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[9px] px-1 sm:px-2 h-7 md:h-12 md:text-lg"
+                className=" border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[9px] px-1 sm:px-2 h-8 md:h-12 md:text-lg"
               >
                 🞤 Create New Trip
               </Button>
@@ -107,7 +108,7 @@ const Header = () => {
             <Link to="/my-trips">
               <Button
                 variant="outline"
-                className="bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-7 md:h-12 md:text-lg"
+                className="  bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-8 md:h-12 md:text-lg"
               >
                 My Trips{" "}
               </Button>
@@ -118,7 +119,7 @@ const Header = () => {
                 <img
                   src={user.picture}
                   alt=""
-                  className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
+                  className=" w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
                 />
               </PopoverTrigger>
               <PopoverContent className="w-auto mt-2 py-2 bg-black text-white cursor-pointer text-[10px] px-4 h-8 md:h-12 md:text-lg">
@@ -138,7 +139,7 @@ const Header = () => {
         ) : (
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="hover:bg-transparent hover:text-black border border-black transition-all duration-300  text-[10px] px-4 h-8 md:h-12 md:text-lg">
+              <Button className=" hover:bg-transparent hover:text-black border border-black transition-all duration-300  text-[10px] px-4 h-8 md:h-12 md:text-lg">
                 Sign In
               </Button>
             </DialogTrigger>
