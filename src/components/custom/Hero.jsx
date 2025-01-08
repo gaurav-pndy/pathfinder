@@ -28,11 +28,13 @@ const Hero = () => {
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
         "-=0.5"
+        "-=0.5"
       )
       .fromTo(
         buttonRef.current,
         { opacity: 0, scale: 0.8 },
         { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" },
+        "-=0.3"
         "-=0.3"
       );
   }, []);
@@ -91,7 +93,17 @@ const Hero = () => {
           fingertips.
         </h3>
         <div ref={buttonRef} className="text-center flex justify-center">
+        <div ref={buttonRef} className="text-center flex justify-center">
           <Link to={"/create-trip"}>
+            <Button variant="customBtn">
+              <>
+                <span className="transition-all duration-1000 md:group-hover:hidden">
+                  Get Started
+                </span>
+                <span className="group-hover:scale-[500%] transition-transform duration-500">
+                  🚀
+                </span>
+              </>
             <Button variant="customBtn">
               <>
                 <span className="transition-all duration-1000 md:group-hover:hidden">

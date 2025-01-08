@@ -1,0 +1,17 @@
+[
+    {
+        "name": "image1",
+        "path": "/rb_1247.png",
+        "id": 1
+    },
+    {
+        "name": "image2",
+        "path": "/image2.png",
+        "id": 2
+    },
+    {
+        "name": "image3",
+        "path": "/suitcase.png",
+        "id": 3
+    }
+]

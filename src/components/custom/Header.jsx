@@ -106,12 +106,15 @@ const Header = () => {
               </Button>
             </Link>
             <Link to="/my-trips">
+            </Link>
+            <Link to="/my-trips">
               <Button
                 variant="outline"
                 className="  bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-8 md:h-12 md:text-lg"
               >
                 My Trips{" "}
               </Button>
+            </Link>
             </Link>
 
             <Popover>
@@ -122,6 +125,7 @@ const Header = () => {
                   className=" w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
                 />
               </PopoverTrigger>
+              <PopoverContent className="w-auto mt-2 py-2 bg-black text-white cursor-pointer text-[10px] px-4 h-8 md:h-12 md:text-lg">
               <PopoverContent className="w-auto mt-2 py-2 bg-black text-white cursor-pointer text-[10px] px-4 h-8 md:h-12 md:text-lg">
                 <h2
                   onClick={() => {
@@ -149,6 +153,8 @@ const Header = () => {
                 <DialogDescription>
                   <img src="/logo.svg" className="w-[45%]" />
                   <span className="text-black font-bold text-lg mt-3">
+                  <img src="/logo.svg" className="w-[45%]" />
+                  <span className="text-black font-bold text-lg mt-3">
                     Sign in with Google
                   </span>
 
@@ -165,6 +171,7 @@ const Header = () => {
           </Dialog>
         )}
       </div>
+    </nav>
     </nav>
   );
 };
