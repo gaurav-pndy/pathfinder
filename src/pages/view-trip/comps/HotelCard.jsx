@@ -39,16 +39,16 @@ const HotelCard = ({ hotel }) => {
       />
       <div className="flex flex-col md:flex-row justify-between items-end md:items-center relative  ">
         <div className=" my-1 md:my-2">
-          <h2 className="font-semibold text-sm md:text-xl pr-5">
+          <h3 className="font-semibold text-sm md:text-xl pr-5">
             {hotel?.hotelName}
-          </h2>
-          <h2 className="text-xs  text-gray-600"> 📍{hotel?.hotelAddress}</h2>
-          <h2 className=" text-xs md:text-sm">
+          </h3>
+          <h3 className="text-xs  text-gray-600"> 📍{hotel?.hotelAddress}</h3>
+          <h3 className=" text-xs md:text-sm">
             {" "}
             💵
             {hotel?.price.range}
-          </h2>
-          <h2 className=" text-xs md:text-sm"> 🌟{hotel?.rating}</h2>
+          </h3>
+          <h3 className=" text-xs md:text-sm"> 🌟{hotel?.rating}</h3>
         </div>
         <a
           href={

@@ -24,6 +24,7 @@ import { useGSAP } from "@gsap/react";
 const Header = () => {
   const { user, setUser } = useUser();
   const [bgColor, setBgColor] = useState("transparent");
+  const [textColor, setTextColor] = useState("text-black");
   const headerRef = useRef(null);
 
   const login = useGoogleLogin({
@@ -51,7 +52,13 @@ const Header = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setBgColor(entry.isIntersecting ? "transparent" : "#b7d3fabc");
+        if (entry.isIntersecting) {
+          setBgColor("transparent");
+          setTextColor("white");
+        } else {
+          setBgColor("#b7d3fabc");
+          setTextColor("black");
+        }
       },
       {
         root: null,
@@ -97,24 +104,33 @@ const Header = () => {
 
       <nav
         ref={navRef}
-        className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all  rounded-b-[20%] sm:rounded-b-[30%] bg-[${bgColor}] ${
-          bgColor !== "transparent" && "shadow-xl backdrop-blur-xl"
-        } `}
+        className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all  ${
+          bgColor !== "transparent"
+            ? "shadow-md backdrop-blur-xl rounded-b-[20%] sm:rounded-b-[30%]"
+            : "bg-gradient-to-b from-[#0000006e] "
+        }`}
+        style={{
+          backgroundColor: bgColor,
+        }}
       >
-        <Link>
+        <Link className={textColor}>
           <img
-            className=" stagger-class w-[80%] sm:w-[80%] md:w-[100%] cursor-pointer"
+            className="stagger-class w-[80%] sm:w-[80%] md:w-[100%] cursor-pointer"
             src="/logo.svg"
             alt=""
           />
         </Link>
-        <div className="stagger-class">
+        <div className={`stagger-class `}>
           {user ? (
             <div className="flex gap-2 md:gap-7 items-center">
               <Link to={"/create-trip"}>
                 <Button
                   variant="outline"
-                  className=" border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[9px] px-1 sm:px-2 h-8 md:h-12 md:text-lg"
+                  className={`border border-${textColor} text-${textColor} bg-transparent ${
+                    textColor == "white"
+                      ? "hover:bg-white hover:text-black"
+                      : "hover:bg-black hover:text-white"
+                  }  transition-all duration-300 text-[9px] px-1 sm:px-2 h-8 md:h-12 md:text-lg `}
                 >
                   🞤 Create New Trip
                 </Button>
@@ -123,7 +139,7 @@ const Header = () => {
               <Link to="/my-trips">
                 <Button
                   variant="outline"
-                  className="  bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-8 md:h-12 md:text-lg"
+                  className={`bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-8 md:h-12 md:text-lg `}
                 >
                   My Trips{" "}
                 </Button>
@@ -134,7 +150,7 @@ const Header = () => {
                   <img
                     src={user.picture}
                     alt=""
-                    className=" w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
+                    className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
                   />
                 </PopoverTrigger>
 
@@ -155,7 +171,9 @@ const Header = () => {
           ) : (
             <Dialog>
               <DialogTrigger asChild>
-                <Button className=" hover:bg-transparent hover:text-black border border-black transition-all duration-300  text-[10px] px-4 h-8 md:h-12 md:text-lg">
+                <Button
+                  className={`hover:bg-transparent hover:text-black border border-black transition-all duration-300 text-[10px] px-4 h-8 md:h-12 md:text-lg ${textColor}`}
+                >
                   Sign In
                 </Button>
               </DialogTrigger>

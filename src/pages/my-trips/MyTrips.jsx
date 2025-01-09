@@ -35,7 +35,7 @@ const MyTrips = () => {
   }
 
   return (
-    <div className="px-4 md:px-28 lg:px-56 mt-20 md:mt-36">
+    <div className="my-trips-cont px-4 md:px-28 lg:px-56 mt-20 md:mt-36">
       <h2 className="font-bold text-3xl">My trips</h2>
       {loading ? (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mt-6">

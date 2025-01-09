@@ -28,31 +28,41 @@ const PlaceCard = ({ place, trip }) => {
   };
 
   return (
-    <div className="mx-3 md:mx-0 relative bg-[#c5e1ff]  border-t border-gray-200 rounded-xl shadow-md shadow-slate-400 overflow-hidden md:hover:scale-105 transition-all duration-300">
-      <div className="px-4 pt-2 absolute z-10">
-        <h4 className="text-sm md:text-lg font-bold text-orange-600 ">
+    <div className="place-card mx-1 md:mx-0 relative rounded-lg shadow-md shadow-slate-400 overflow-hidden h-[230px] md:h-[400px]">
+      {/* Image with zoom effect */}
+      <img
+        src={photoUrl || "/demo.jpg"}
+        alt="Place"
+        className="w-full h-full object-cover transition-all duration-300 ease-in-out transform hover:scale-[115%]"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+
+      {/* Gradient Overlay */}
+      <div className="absolute pointer-events-none inset-0 bg-gradient-to-b from-black/90 to-transparent  h-[50%] z-0"></div>
+
+      {/* Content */}
+      <div className=" px-2 md:px-4 pt-2 absolute z-10">
+        <h4 className="text-sm md:text-lg font-bold text-yellow-400 ">
           {place.time}
         </h4>
-        <h2 className="font-bold md:text-2xl leading-snug">
+        <h3 className="font-bold text-xl md:text-3xl leading-snug text-purple-50">
           {place.placeName}
-        </h2>
-        <h2 className="text-gray-800 text-sm md:text-base ">
+        </h3>
+        <h3 className="text-slate-300 text-sm md:text-base ">
           {place.placeDetails}
-        </h2>
-      </div>
-      <div className="relative">
-        <img
-          src={photoUrl || "/demo.jpg"}
-          alt=""
-          className="placeImg w-full h-[170px] md:h-[260px] object-cover mt-[68px] md:mt-20  border-black "
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#c5e1ff] h-[40%] "></div>
+        </h3>
       </div>
 
-      <div className="shadow-[-4px_-4px_10px_rgba(0,0,0,0.6)] text-xs md:text-base font-bold absolute bottom-0 right-0 rounded-br-lg rounded-tl-2xl min-h-[30%] md:min-h-[27%] min-w-[25%] md:min-w-[23%] px-1 pt-2 bg-black/60 text-white backdrop-blur-sm leading-5">
+      {/* Pricing and Info */}
+      <div className="shadow-[-4px_-4px_10px_rgba(0,0,0,0.6)] text-xs md:text-lg font-bold absolute bottom-0 right-0 rounded-br-lg rounded-tl-2xl min-h-[30%] md:min-h-[27%] min-w-[25%] md:min-w-[23%] px-2 pt-1 md:pt-2 bg-black/60 text-white backdrop-blur-sm leading-5">
         <h2>💵 {place.ticketPricing?.split(/(\(|,|\.|per)/i)[0]}</h2>
-
         <h2>⌚ {place.travelTime?.split("(")[0]}</h2>
         <h2>⭐ {place.rating}</h2>
       </div>

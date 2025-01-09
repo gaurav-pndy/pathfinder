@@ -36,24 +36,8 @@ const Loader = ({ loading, onGenerateTrip }) => {
             </p>
           </div>
 
-          {/* <div className="mt-8 flex justify-center">
-            <img
-              src="/suitcase.png"
-              alt="Trip generation illustration"
-              className="w-64 md:w-80 h-auto"
-            />
-          </div> */}
-
-          <div className="md:mt-8 flex justify-center">
-            <div className="loader">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div
-                  key={i}
-                  className={`h-[25px] w-[25px] md:h-[30px] md:w-[30px] rounded-full bg-blue-600 inline-block m-[0.5rem] animate-bounce`}
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                ></div>
-              ))}
-            </div>
+          <div className="mb-10 md:mb-5 flex justify-center">
+            <img src="/planeloader2.gif" alt="" />
           </div>
         </div>
 

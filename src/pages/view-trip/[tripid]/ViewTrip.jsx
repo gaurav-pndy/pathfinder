@@ -27,7 +27,7 @@ const ViewTrip = () => {
   };
 
   return (
-    <div className="mt-20 md:mt-28 px-3 md:px-20 lg:px-48">
+    <div className="view-trip-cont">
       {trip ? (
         <>
           <InfoSection trip={trip} />
