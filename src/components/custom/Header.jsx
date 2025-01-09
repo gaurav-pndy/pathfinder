@@ -51,7 +51,7 @@ const Header = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setBgColor(entry.isIntersecting ? "transparent" : "#b7d3fa");
+        setBgColor(entry.isIntersecting ? "transparent" : "#b7d3fabc");
       },
       {
         root: null,
@@ -97,8 +97,8 @@ const Header = () => {
 
       <nav
         ref={navRef}
-        className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all rounded-b-[20%] sm:rounded-b-[30%] bg-[${bgColor}] ${
-          bgColor !== "transparent" && "shadow-xl"
+        className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all  rounded-b-[20%] sm:rounded-b-[30%] bg-[${bgColor}] ${
+          bgColor !== "transparent" && "shadow-xl backdrop-blur-xl"
         } `}
       >
         <Link>

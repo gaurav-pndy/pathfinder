@@ -41,22 +41,22 @@ function CreateTrip() {
   }, []);
 
   return (
-    <div className=" create-trip-cont px-4 md:px-28  pt-28 md:pt-36 create-trip-cont ">
-      <h2 className="font-bold text-3xl md:text-4xl fade-in">
+    <div className="overflow-hidden create-trip-cont text-blue-950  pt-28 md:pt-36 create-trip-cont ">
+      <h2 className="create-trip-head font-bold px-3 md:px-28 text-2xl sm:text-4xl fade-in">
         Tell Us About Your Dream Getaway! 🌍✨
       </h2>
-      <p className="mt-3 text-gray-500 md:text-xl fade-in">
+      <p className="mt-3 px-4 md:px-28 text-cyan-700 md:text-xl fade-in">
         Answer a few quick questions, and our magical trip planner will whip up
         a personalized itinerary just for you!
       </p>
 
       <div className="ct-img1 img-anim">
-        <img src="/planes.png" alt="" className="scale-100 md:scale-110" />
+        <img src="/planes.png" alt="" />
       </div>
-      <div className="relative flex flex-col gap-5 md:gap-10">
-        <div className="relative flex  fade-in gap-5 md:gap-10">
-          <div className="w-1/2">
-            <h2 className="text-xl md:text-2xl my-3 font-semibold">
+      <div className="relative  flex flex-col gap-5 md:gap-10">
+        <div className="relative z-10 px-4 md:px-36 flex flex-col md:flex-row fade-in gap-5 md:gap-10">
+          <div className="md:w-1/2">
+            <h2 className="text-xl md:text-3xl my-3 font-bold">
               Where do you want to go?
             </h2>
             <GooglePlacesAutocomplete
@@ -76,7 +76,7 @@ function CreateTrip() {
                     background: "#c1e2ff",
                     boxShadow: "inset 0 2px 3px #1e3a8a7a",
                     borderRadius: "1rem",
-                    padding: "0.8rem 0.7rem",
+                    padding: "1rem 0.4rem",
                     color: "#1F2937",
                     fontSize: "1.2rem",
                     transition: "all 0.3s ease",
@@ -90,29 +90,49 @@ function CreateTrip() {
                   }),
                   menu: (base) => ({
                     ...base,
-                    zIndex: "100",
-                    maxHeight: "160px",
+
                     overflowY: "auto",
+                    backgroundColor: "skyblue",
+                    borderRadius: "10px",
+                    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+                  }),
+                  menuList: (base) => ({
+                    ...base,
+                    padding: "3px 6px",
+                  }),
+                  option: (base, state) => ({
+                    ...base,
+                    padding: "13px",
+                    margin: "3px 0",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                    backgroundColor: state.isSelected ? "#6f76fc" : "#a7abfc",
+                    color: state.isSelected ? "#ffffff" : "#333",
+                    fontSize: "1.1rem",
+                    "&:hover": {
+                      backgroundColor: "#6f76fc",
+                      color: "#ffffff",
+                    },
                   }),
                 },
               }}
             />
           </div>
 
-          <div className="w-1/2">
-            <h2 className="text-xl md:text-2xl my-3 font-semibold ">
+          <div className="md:w-1/2">
+            <h2 className="text-xl md:text-3xl my-3 font-bold ">
               How many days of adventure?
             </h2>
             <Input
-              className=" text-lg md:text-lg pl-7  bg-[#c1e2ff] shadow-inner  shadow-[#1e3a8a7a] rounded-2xl py-8 text-gray-80 placeholder:text-base md:placeholder:text-lg placeholder-gray-500 transition-all duration-300"
+              className=" text-lg md:text-lg pl-4  bg-[#c1e2ff] shadow-inner  shadow-[#1e3a8a7a] rounded-2xl py-9 text-gray-80 placeholder:text-base md:placeholder:text-lg placeholder-gray-500 transition-all duration-300"
               placeholder="📅 Type a number and let the countdown begin!"
               onChange={(e) => handleInputChange("noOfDays", e.target.value)}
             />
           </div>
         </div>
 
-        <div className="fade-in md:z-0">
-          <h2 className="text-xl md:text-2xl my-3 font-semibold">
+        <div className="fade-in px-4 md:px-36 z-0">
+          <h2 className="text-xl md:text-3xl my-3 font-bold">
             What’s your budget vibe?
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 mt-5">
@@ -120,14 +140,14 @@ function CreateTrip() {
               <div
                 key={idx}
                 onClick={() => handleInputChange("budget", item.title)}
-                className={`p-5 shadow-md rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
+                className={`p-3 md:p-6 shadow-md rounded-2xl hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
                   formData.budget === item.title
                     ? "bg-purple-950 text-white"
-                    : "bg-[#c4c0ff]"
+                    : "bg-[#c4c0ff] text-purple-950"
                 } flex flex-col md:gap-1`}
               >
-                <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
-                <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
+                <h2 className="text-4xl md:text-6xl ">{item.icon}</h2>
+                <h2 className="font-bold text-lg md:text-2xl">{item.title}</h2>
                 <h2
                   className={`text-sm md:text-base opacity-80 ${
                     formData.budget === item.title && "  text-gray-300"
@@ -141,8 +161,8 @@ function CreateTrip() {
         </div>
 
         <div className="relative">
-          <div className="fade-in relative z-10">
-            <h2 className="text-xl md:text-2xl my-3 font-semibold">
+          <div className="fade-in px-4 md:px-36 relative z-10">
+            <h2 className="text-xl md:text-3xl my-3 font-bold">
               Who’s joining you on this adventure?
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 mt-5">
@@ -150,14 +170,16 @@ function CreateTrip() {
                 <div
                   key={idx}
                   onClick={() => handleInputChange("noOfPeople", item.people)}
-                  className={`p-5 shadow-md rounded-lg hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
+                  className={`p-3 md:p-6 shadow-md rounded-2xl hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
                     formData.noOfPeople === item.people
                       ? "bg-pink-900 text-white"
-                      : "bg-[#c4c0ff]"
+                      : "bg-[#c4c0ff] text-purple-950"
                   } flex flex-col md:gap-1`}
                 >
-                  <h2 className="text-4xl md:text-5xl">{item.icon}</h2>
-                  <h2 className="font-bold text-lg md:text-xl">{item.title}</h2>
+                  <h2 className="text-4xl md:text-6xl">{item.icon}</h2>
+                  <h2 className="font-bold text-lg md:text-2xl">
+                    {item.title}
+                  </h2>
                   <h2 className="text-xs ">({item.people})</h2>
                   <h2
                     className={`text-sm md:text-base opacity-80  ${

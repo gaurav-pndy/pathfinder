@@ -12,7 +12,7 @@ const NewsCard = ({ news }) => {
       <div
         className="news-wrapper h-64 sm:h-80 relative "
         style={{
-          background: `linear-gradient(rgba(0, 10, 23, 0.4), rgba(1, 6, 25, 0.6)), url(${
+          background: `linear-gradient(rgba(0, 10, 23, 0.4), rgba(1, 6, 25, 0.7)), url(${
             news.image_url || "/newsDefault.jpg"
           }) center/cover no-repeat`,
         }}
@@ -49,7 +49,7 @@ const NewsCard = ({ news }) => {
             <a
               href={news.link}
               target="_blank"
-              className="news-read-btn block w-24  mx-auto text-emerald-200 text-center text-sm relative font-bold  "
+              className="news-read-btn block w-24  mx-auto text-emerald-200 text-center text-sm relative font-bold animate-bounce "
             >
               Read More
             </a>
