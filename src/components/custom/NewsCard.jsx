@@ -10,24 +10,24 @@ const NewsCard = ({ news }) => {
   return (
     <div className="news-card rounded-xl overflow-hidden cursor-pointer shadow-md shadow-slate-500">
       <div
-        className="news-wrapper  h-80 relative "
+        className="news-wrapper h-64 sm:h-80 relative "
         style={{
           background: `linear-gradient(rgba(0, 10, 23, 0.4), rgba(1, 6, 25, 0.6)), url(${
-            news.image_url || "newsDefault.jpg"
+            news.image_url || "/newsDefault.jpg"
           }) center/cover no-repeat`,
         }}
       >
         <div className="news-header  p-3 flex justify-between">
-          <span className="text-sm text-cyan-300  font-semibold">
+          <span className="text-xs sm:text-sm text-cyan-300  font-semibold">
             {formattedDate}
           </span>
-          <span className="text-sm text-neutral-200">
+          <span className="text-xs sm:text-sm text-neutral-200">
             {news.country[0].toUpperCase()}
           </span>
         </div>
         <div className="news-data absolute bottom-0 w-full translate-y-28 transition-all duration-300">
           <div className="news-content px-3 py-2 relative z-10  ">
-            <span className="news-author text-sm flex items-center gap-2 text-zinc-300">
+            <span className="news-author text-xs sm:text-sm flex items-center gap-2 text-zinc-300">
               <img
                 src={news.source_icon || "newsSource.jpg"}
                 alt="source icon"
@@ -36,12 +36,12 @@ const NewsCard = ({ news }) => {
               {news.source_name}
             </span>
 
-            <h1 className="news-title text-blue-50 font-semibold text-2xl overflow-hidden text-ellipsis line-clamp-3">
+            <h1 className="news-title text-blue-50 font-semibold text-xl sm:text-2xl overflow-hidden text-ellipsis line-clamp-3 leading-6 sm:leading-normal">
               {news.title}
             </h1>
             <p
               className={
-                "news-text h-20 my-2 text-sm text-gray-300 overflow-hidden text-ellipsis line-clamp-4"
+                "news-text h-20 my-1 sm:my-2 text-sm text-gray-300 overflow-hidden text-ellipsis line-clamp-5 sm:line-clamp-4 leading-4 sm:leading-normal"
               }
             >
               {news.description || "No description available."}

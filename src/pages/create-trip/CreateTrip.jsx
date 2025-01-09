@@ -41,7 +41,7 @@ function CreateTrip() {
   }, []);
 
   return (
-    <div className="px-4 md:px-28 lg:px-56 mt-28 md:mt-36 create-trip-cont">
+    <div className=" create-trip-cont px-4 md:px-28  pt-28 md:pt-36 create-trip-cont ">
       <h2 className="font-bold text-3xl md:text-4xl fade-in">
         Tell Us About Your Dream Getaway! 🌍✨
       </h2>
@@ -54,8 +54,8 @@ function CreateTrip() {
         <img src="/planes.png" alt="" className="scale-100 md:scale-110" />
       </div>
       <div className="relative flex flex-col gap-5 md:gap-10">
-        <div className="relative flex flex-col fade-in gap-5 md:gap-10">
-          <div className="">
+        <div className="relative flex  fade-in gap-5 md:gap-10">
+          <div className="w-1/2">
             <h2 className="text-xl md:text-2xl my-3 font-semibold">
               Where do you want to go?
             </h2>
@@ -99,7 +99,7 @@ function CreateTrip() {
             />
           </div>
 
-          <div>
+          <div className="w-1/2">
             <h2 className="text-xl md:text-2xl my-3 font-semibold ">
               How many days of adventure?
             </h2>

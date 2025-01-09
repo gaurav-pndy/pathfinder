@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import {
   Popover,
@@ -24,6 +24,7 @@ import { useGSAP } from "@gsap/react";
 const Header = () => {
   const { user, setUser } = useUser();
   const [bgColor, setBgColor] = useState("transparent");
+  const headerRef = useRef(null);
 
   const login = useGoogleLogin({
     onSuccess: (codeResp) => getUserProfile(codeResp),
@@ -48,18 +49,25 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setBgColor("#b7d3fa");
-      } else {
-        setBgColor("transparent");
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setBgColor(entry.isIntersecting ? "transparent" : "#b7d3fa");
+      },
+      {
+        root: null,
+        threshold: 0,
       }
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll);
+    const marker = document.getElementById("marker");
+    if (marker) {
+      observer.observe(marker);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (marker) {
+        observer.unobserve(marker);
+      }
     };
   }, []);
 
@@ -70,7 +78,7 @@ const Header = () => {
       gsap.from(".stagger-class", {
         opacity: 0,
         y: -100,
-        duration: 1,
+        duration: 0.7,
         ease: "power2.inOut",
         stagger: {
           each: 0.3,
@@ -81,93 +89,100 @@ const Header = () => {
   );
 
   return (
-    <nav
-      ref={navRef}
-      className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all rounded-b-[20%] sm:rounded-b-[30%]   bg-[${bgColor}] ${
-        bgColor !== "transparent" && "shadow-xl"
-      } `}
-    >
-      <Link>
-        <img
-          className=" stagger-class w-[80%] sm:w-[80%] md:w-[100%] cursor-pointer"
-          src="/logo.svg"
-          alt=""
-        />
-      </Link>
-      <div className="stagger-class">
-        {user ? (
-          <div className="flex gap-2 md:gap-7 items-center">
-            <Link to={"/create-trip"}>
-              <Button
-                variant="outline"
-                className=" border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[9px] px-1 sm:px-2 h-8 md:h-12 md:text-lg"
-              >
-                🞤 Create New Trip
-              </Button>
-            </Link>
+    <div ref={headerRef}>
+      <div
+        id="marker"
+        style={{ position: "absolute", top: "0", width: "100%", height: "1px" }}
+      ></div>
 
-            <Link to="/my-trips">
-              <Button
-                variant="outline"
-                className="  bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-8 md:h-12 md:text-lg"
-              >
-                My Trips{" "}
-              </Button>
-            </Link>
-
-            <Popover>
-              <PopoverTrigger>
-                <img
-                  src={user.picture}
-                  alt=""
-                  className=" w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
-                />
-              </PopoverTrigger>
-
-              <PopoverContent className="w-auto mt-2 py-2 bg-black text-white cursor-pointer text-[10px] px-4 h-8 md:h-12 md:text-lg">
-                <h2
-                  onClick={() => {
-                    googleLogout();
-                    localStorage.clear();
-                    setUser(null);
-                    window.location.href = "/";
-                  }}
+      <nav
+        ref={navRef}
+        className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all rounded-b-[20%] sm:rounded-b-[30%] bg-[${bgColor}] ${
+          bgColor !== "transparent" && "shadow-xl"
+        } `}
+      >
+        <Link>
+          <img
+            className=" stagger-class w-[80%] sm:w-[80%] md:w-[100%] cursor-pointer"
+            src="/logo.svg"
+            alt=""
+          />
+        </Link>
+        <div className="stagger-class">
+          {user ? (
+            <div className="flex gap-2 md:gap-7 items-center">
+              <Link to={"/create-trip"}>
+                <Button
+                  variant="outline"
+                  className=" border border-black bg-transparent hover:bg-black hover:text-white transition-all duration-300 text-[9px] px-1 sm:px-2 h-8 md:h-12 md:text-lg"
                 >
-                  Logout
-                </h2>
-              </PopoverContent>
-            </Popover>
-          </div>
-        ) : (
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className=" hover:bg-transparent hover:text-black border border-black transition-all duration-300  text-[10px] px-4 h-8 md:h-12 md:text-lg">
-                Sign In
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="pt-0">
-              <DialogHeader>
-                <DialogTitle></DialogTitle>
-                <DialogDescription>
-                  <img src="/logo.svg" className="w-[45%]" />
-                  <span className="text-black font-bold text-lg mt-3">
-                    Sign in with Google
-                  </span>
+                  🞤 Create New Trip
+                </Button>
+              </Link>
 
-                  <Button
-                    onClick={login}
-                    className="w-full mt-5 flex items-center"
+              <Link to="/my-trips">
+                <Button
+                  variant="outline"
+                  className="  bg-blue-300 hover:bg-blue-800 hover:text-white transition-all duration-300 text-[9px] px-2 sm:px-4 h-8 md:h-12 md:text-lg"
+                >
+                  My Trips{" "}
+                </Button>
+              </Link>
+
+              <Popover>
+                <PopoverTrigger>
+                  <img
+                    src={user.picture}
+                    alt=""
+                    className=" w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full border cursor-pointer max-w-16"
+                  />
+                </PopoverTrigger>
+
+                <PopoverContent className="w-auto mt-2 py-2 bg-black text-white cursor-pointer text-[10px] px-4 h-8 md:h-12 md:text-lg">
+                  <h2
+                    onClick={() => {
+                      googleLogout();
+                      localStorage.clear();
+                      setUser(null);
+                      window.location.href = "/";
+                    }}
                   >
-                    <img src="/googlelogo.svg" alt="" className="w-[9%]" /> Sign
-                    in with Google
-                  </Button>
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        )}
-      </div>
-    </nav>
+                    Logout
+                  </h2>
+                </PopoverContent>
+              </Popover>
+            </div>
+          ) : (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className=" hover:bg-transparent hover:text-black border border-black transition-all duration-300  text-[10px] px-4 h-8 md:h-12 md:text-lg">
+                  Sign In
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="pt-0">
+                <DialogHeader>
+                  <DialogTitle></DialogTitle>
+                  <DialogDescription>
+                    <img src="/logo.svg" className="w-[45%]" />
+                    <span className="text-black font-bold text-lg mt-3">
+                      Sign in with Google
+                    </span>
+
+                    <Button
+                      onClick={login}
+                      className="w-full mt-5 flex items-center"
+                    >
+                      <img src="/googlelogo.svg" alt="" className="w-[9%]" />{" "}
+                      Sign in with Google
+                    </Button>
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          )}
+        </div>
+      </nav>
+    </div>
   );
 };
 

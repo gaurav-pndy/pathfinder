@@ -10,12 +10,13 @@ const HomeCard = ({ image, title, desc }) => {
 
   useGSAP(() => {
     gsap.from(cardRef.current, {
-      scale: 0,
+      scale: 0.5,
       opacity: 0,
       duration: 0.8,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: cardRef.current,
-        start: "top 90%",
+        start: "top 80%",
       },
     });
   }, []);
@@ -25,7 +26,12 @@ const HomeCard = ({ image, title, desc }) => {
       ref={cardRef}
       className="flex flex-col text-center justify-center items-center gap-3 sm:gap-10"
     >
-      <img src={image} alt={title} className="w-32 h-32 sm:w-48 sm:h-48" />
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        className="w-32 h-32 sm:w-48 sm:h-48"
+      />
       <h3 className="text-lg sm:text-2xl font-semibold text-blue-950">
         {title}
       </h3>

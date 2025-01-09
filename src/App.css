@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 ::-webkit-scrollbar {
   width: 0px;
@@ -33,9 +33,9 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("travelbg.jpg") no-repeat center center fixed;
+  background: url("/travelbg.jpg") no-repeat center center fixed;
   background-size: cover;
-  opacity: 0.6;
+  opacity: 0.3;
   z-index: -1;
 }
 
@@ -62,6 +62,7 @@ h2 {
   position: relative;
   height: 99vh;
   overflow: hidden;
+  border-radius: 0% 0% 40% 40% / 10% 10% 10% 10%;
 }
 
 .hero-section video {
@@ -83,14 +84,15 @@ h2 {
   height: 99vh;
   background: linear-gradient(rgba(0, 1, 44, 0.1), rgba(0, 7, 39, 0.6));
   z-index: 1;
-  border-radius: 0 0 10% 10%;
+  border-radius: 0% 0% 40% 40% / 10% 10% 10% 10%;
 }
 
-.hot-dest h1 .dest-head {
+.hot-dest h2 .dest-head {
   text-shadow: 1px 1px 6px rgba(91, 24, 2, 0.4);
 
   background: linear-gradient(90deg, yellow, orangered);
-
+  font-family: "Lobster", serif;
+  font-weight: 500;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -172,6 +174,13 @@ h2 {
   .embla__slide {
     flex: 0 0 90%;
   }
+
+  .hero-section {
+    border-radius: 0% 0% 49% 49% / 10% 10% 15% 15%;
+  }
+  .hero-section::before {
+    border-radius: 0% 0% 49% 49% / 10% 10% 15% 15%;
+  }
 }
 
 .embla__button {
@@ -202,6 +211,10 @@ h2 {
   height: 35%;
 }
 
+.travel-news h2 {
+  text-shadow: 5px 5px 7px rgba(27, 12, 192, 0.592);
+}
+
 .news-card .news-wrapper:hover .news-data {
   transform: translateY(0);
 }
@@ -220,4 +233,12 @@ h2 {
 .news-card .news-read-btn:hover::after {
   transform: translate(5px, -50%);
   opacity: 1;
+}
+
+.create-trip-cont {
+  background-image: url("/skybg.jpg");
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
 }
