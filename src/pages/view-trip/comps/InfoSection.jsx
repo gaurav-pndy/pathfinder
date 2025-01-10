@@ -1,4 +1,4 @@
-import { GetPlaceDetails, PHOTO_REF_URL } from "@/service/GlobalAPI";
+import { GetPlaceDetails, GetPhotoRefUrl } from "@/service/GlobalAPI";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
@@ -25,14 +25,14 @@ const InfoSection = ({ trip }) => {
       const resp = await GetPlaceDetails(data);
       const photos = resp.data.places[0].photos;
 
-      // Find the photo with the largest dimensions
       const bestPhoto = photos.reduce((maxPhoto, currentPhoto) => {
-        const maxPhotoArea = maxPhoto.height * maxPhoto.width;
-        const currentPhotoArea = currentPhoto.height * currentPhoto.width;
+        const maxPhotoArea = maxPhoto.heightPx * maxPhoto.widthPx;
+        const currentPhotoArea = currentPhoto.heightPx * currentPhoto.widthPx;
         return currentPhotoArea > maxPhotoArea ? currentPhoto : maxPhoto;
       }, photos[0]);
 
-      const photoUrl = PHOTO_REF_URL.replace("{NAME}", bestPhoto.name);
+      const photoUrl = GetPhotoRefUrl(bestPhoto.name);
+
       setPhotoUrl(photoUrl);
       setLoading(false);
     } catch (error) {
@@ -47,6 +47,7 @@ const InfoSection = ({ trip }) => {
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
+        delay: 1.5,
         stagger: {
           each: 0.2,
         },
@@ -58,11 +59,12 @@ const InfoSection = ({ trip }) => {
   return (
     <div>
       <div
-        className="view-trip-pic hot-dest h-[75vh] md:h-[95vh] mb-3 flex relative justify-center items-end py-10 md:py-2 "
+        className="view-trip-pic hot-dest h-[75vh] md:h-[95vh] mb-3 flex relative justify-center items-end py-6 md:py-2 "
         style={{
           backgroundImage: `linear-gradient(rgba(0, 10, 23, 0.1), rgba(1, 6, 25, 0.5)), url(${
             loading ? "/planeloading.gif" : photoUrl || "/travelDemo.jpg"
           })`,
+          backgroundSize: `${loading ? "auto" : "cover"}`,
         }}
       >
         <div
@@ -72,7 +74,7 @@ const InfoSection = ({ trip }) => {
           <h2 className=" stagger-text stroked-text font-bold w-[95%] text-center text-3xl md:text-5xl">
             {trip.userSelection.location.label}
           </h2>
-          <div className="flex gap-4 text-sm md:text-lg font-semibold">
+          <div className="flex gap-4 text-xs sm:text-sm md:text-lg font-semibold">
             <h2 className="stagger-text py-2 px-3 bg-green-800 rounded-full ">
               🗓️ {trip.userSelection.noOfDays} Days
             </h2>

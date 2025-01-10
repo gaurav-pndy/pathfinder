@@ -41,7 +41,7 @@ const NewsCard = ({ news }) => {
             </h1>
             <p
               className={
-                "news-text h-20 my-1 sm:my-2 text-sm text-gray-300 overflow-hidden text-ellipsis line-clamp-5 sm:line-clamp-4 leading-4 sm:leading-normal"
+                "news-text h-20 my-1 mt-2 sm:my-2 text-sm text-gray-300 overflow-hidden text-ellipsis line-clamp-5 sm:line-clamp-4 leading-4 sm:leading-normal"
               }
             >
               {news.description || "No description available."}

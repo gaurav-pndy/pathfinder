@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { GetPlaceDetails, PHOTO_REF_URL } from "@/service/GlobalAPI";
+import { GetPhotoRefUrl, GetPlaceDetails } from "@/service/GlobalAPI";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPaperPlane } from "react-icons/fa";
@@ -21,10 +21,7 @@ const HotelCard = ({ hotel }) => {
     };
 
     const result = await GetPlaceDetails(data).then((resp) => {
-      const PhotoURL = PHOTO_REF_URL.replace(
-        "{NAME}",
-        resp.data.places[0].photos[0].name
-      );
+      const PhotoURL = GetPhotoRefUrl(resp.data.places[0].photos[0].name);
 
       setPhotoUrl(PhotoURL);
     });
@@ -35,7 +32,7 @@ const HotelCard = ({ hotel }) => {
       <img
         src={photoUrl || "/hotelDemo.jpg"}
         alt=""
-        className="rounded-xl h-[140px] md:h-[250px] w-full object-cover "
+        className="rounded-xl h-[120px] sm:h-[140px] md:h-[250px] w-full object-cover "
       />
       <div className="flex flex-col md:flex-row justify-between items-end md:items-center relative  ">
         <div className=" my-1 md:my-2">

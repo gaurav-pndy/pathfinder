@@ -3,6 +3,9 @@ export const darkMode = ["class"];
 export const content = ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"];
 export const theme = {
   extend: {
+    screens: {
+      xs: "400px",
+    },
     borderRadius: {
       lg: "var(--radius)",
       md: "calc(var(--radius) - 2px)",

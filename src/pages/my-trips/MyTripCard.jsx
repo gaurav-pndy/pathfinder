@@ -1,4 +1,4 @@
-import { GetPlaceDetails, PHOTO_REF_URL } from "@/service/GlobalAPI";
+import { GetPhotoRefUrl, GetPlaceDetails } from "@/service/GlobalAPI";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -15,10 +15,7 @@ const MyTripCard = ({ trip }) => {
     };
 
     const result = await GetPlaceDetails(data).then((resp) => {
-      const PhotoURL = PHOTO_REF_URL.replace(
-        "{NAME}",
-        resp.data.places[0].photos[4].name
-      );
+      const PhotoURL = GetPhotoRefUrl(resp.data.places[0].photos[4].name);
 
       setPhotoUrl(PhotoURL);
     });

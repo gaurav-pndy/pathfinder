@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GetPlaceDetails, PHOTO_REF_URL } from "@/service/GlobalAPI";
+import { GetPhotoRefUrl, GetPlaceDetails } from "@/service/GlobalAPI";
 
 const DestinationCard = ({ destination }) => {
   const [photoUrl, setPhotoUrl] = useState();
@@ -15,10 +15,7 @@ const DestinationCard = ({ destination }) => {
     };
 
     const result = await GetPlaceDetails(data).then((resp) => {
-      const PhotoURL = PHOTO_REF_URL.replace(
-        "{NAME}",
-        resp.data.places[0].photos[0].name
-      );
+      const PhotoURL = GetPhotoRefUrl(resp.data.places[0].photos[0].name);
 
       setPhotoUrl(PhotoURL);
       setLoading(false);
@@ -28,7 +25,7 @@ const DestinationCard = ({ destination }) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center mt-10 h-64">
-        <img src="binocular.gif" alt="Loading..." className="w-20" />
+        <img src="binocular.gif" alt="Loading..." className="w-10 xs:w-20" />
       </div>
     );
   }
@@ -37,9 +34,9 @@ const DestinationCard = ({ destination }) => {
     <div className="bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10">
       <img
         src={photoUrl || "/binoculars.gif"}
-        className="w-96 h-96 object-cover "
+        className="w-80 h-80 xs:w-96 xs:h-96 object-cover "
       />
-      <h2 className=" dest-card-text mt-2 text-3xl  text-center text-slate-700 py-4">
+      <h2 className=" dest-card-text mt-2 text-2xl sm:text-3xl  text-center text-slate-700 py-4">
         {destination.displayName.text}
       </h2>
     </div>

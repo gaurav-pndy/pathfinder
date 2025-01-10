@@ -1,4 +1,4 @@
-import { GetPlaceDetails, PHOTO_REF_URL } from "@/service/GlobalAPI";
+import { GetPhotoRefUrl, GetPlaceDetails } from "@/service/GlobalAPI";
 import React, { useEffect, useState } from "react";
 
 const PlaceCard = ({ place, trip }) => {
@@ -18,17 +18,14 @@ const PlaceCard = ({ place, trip }) => {
     };
 
     const result = await GetPlaceDetails(data).then((resp) => {
-      const PhotoURL = PHOTO_REF_URL.replace(
-        "{NAME}",
-        resp.data.places[0].photos[0].name
-      );
+      const PhotoURL = GetPhotoRefUrl(resp.data.places[0].photos[0].name);
 
       setPhotoUrl(PhotoURL);
     });
   };
 
   return (
-    <div className="place-card mx-1 md:mx-0 relative rounded-lg shadow-md shadow-slate-400 overflow-hidden h-[230px] md:h-[400px]">
+    <div className="place-card mx-1 md:mx-0 relative rounded-lg shadow-md shadow-slate-400 overflow-hidden h-[210px] sm:h-[230px] md:h-[400px]">
       {/* Image with zoom effect */}
       <img
         src={photoUrl || "/demo.jpg"}
@@ -45,7 +42,7 @@ const PlaceCard = ({ place, trip }) => {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute pointer-events-none inset-0 bg-gradient-to-b from-black/90 to-transparent  h-[50%] z-0"></div>
+      <div className="absolute pointer-events-none inset-0 bg-gradient-to-b from-black/90 to-transparent h-[70%]  md:h-[50%] z-0"></div>
 
       {/* Content */}
       <div className=" px-2 md:px-4 pt-2 absolute z-10">

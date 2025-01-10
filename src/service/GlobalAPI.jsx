@@ -12,9 +12,10 @@ const config = {
 
 export const GetPlaceDetails = (data) => axios.post(BASE_URL, data, config);
 
-export const PHOTO_REF_URL =
-  "https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=1000&maxWidthPx=1000&key=" +
-  import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+export const GetPhotoRefUrl = (name) =>
+  `https://places.googleapis.com/v1/${name}/media?maxHeightPx=2000&maxWidthPx=3000&key=${
+    import.meta.env.VITE_GOOGLE_PLACES_API_KEY
+  }`;
 
 export const GetDestinations = () =>
   axios.post(BASE_URL, { textQuery: "trending tourist cities" }, config);

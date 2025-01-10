@@ -104,10 +104,10 @@ const Header = () => {
 
       <nav
         ref={navRef}
-        className={`header px-2 py-2 md:py-0 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all  ${
+        className={`header px-2 py-2 md:pt-1 top-0 fixed w-full md:px-5 lg:px-20 flex justify-between items-center z-20 transition-all  ${
           bgColor !== "transparent"
-            ? "shadow-md backdrop-blur-xl rounded-b-[20%] sm:rounded-b-[30%]"
-            : "bg-gradient-to-b from-[#0000006e] "
+            ? "shadow-md backdrop-blur-xl rounded-b-[20%]  sm:rounded-b-[30%]"
+            : "bg-gradient-to-b pb-5 from-[#00000090] "
         }`}
         style={{
           backgroundColor: bgColor,
@@ -115,7 +115,7 @@ const Header = () => {
       >
         <Link className={textColor}>
           <img
-            className="stagger-class w-[80%] sm:w-[80%] md:w-[100%] cursor-pointer"
+            className="stagger-class w-[80%] sm:w-[80%] md:w-[100%] cursor-pointer "
             src="/logo.svg"
             alt=""
           />

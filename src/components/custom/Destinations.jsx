@@ -74,10 +74,10 @@ const Destinations = () => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <div className="hot-dest py-14 sm:py-6  z-30 h-screen sm:h-[110vh]  ">
-      <h2 className=" text-4xl sm:text-5xl text-orange-300 font-extrabold  text-center  flex justify-center items-end">
+    <div className="hot-dest py-9 xs:py-14 sm:py-6  z-30 h-[105vh] xs:h-screen sm:h-[110vh]  ">
+      <h2 className=" text-3xl xs:text-4xl sm:text-5xl text-orange-300 font-extrabold  text-center  flex justify-center items-end">
         <span className="dest-head "> Hot Destinations </span>{" "}
-        <img src="fire.gif" alt="" className="w-12 sm:w-16" />
+        <img src="fire.gif" alt="" className="w-9 xs:w-12 sm:w-16" />
       </h2>
       {loading ? (
         <div className="flex justify-center items-center mt-12">
@@ -85,7 +85,10 @@ const Destinations = () => {
         </div>
       ) : (
         <>
-          <section ref={carouselRef} className="embla relative  my-12 sm:my-0 ">
+          <section
+            ref={carouselRef}
+            className="embla relative  my-5 xs:my-8 sm:my-0 "
+          >
             <div className="embla__viewport  overflow-hidden" ref={emblaRef}>
               <div className="embla__container  ">
                 {destinations.slice(0, 6).map((destination, index) => (

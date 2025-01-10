@@ -143,7 +143,7 @@ function CreateTrip() {
                 className={`p-3 md:p-6 shadow-md rounded-2xl hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
                   formData.budget === item.title
                     ? "bg-purple-950 text-white"
-                    : "bg-[#c4c0ff] text-purple-950"
+                    : "bg-[#cdcafb] text-purple-950"
                 } flex flex-col md:gap-1`}
               >
                 <h2 className="text-4xl md:text-6xl ">{item.icon}</h2>
@@ -173,7 +173,7 @@ function CreateTrip() {
                   className={`p-3 md:p-6 shadow-md rounded-2xl hover:shadow-xl hover:scale-105 cursor-pointer transition-all duration-300 ${
                     formData.noOfPeople === item.people
                       ? "bg-pink-900 text-white"
-                      : "bg-[#c4c0ff] text-purple-950"
+                      : "bg-[#cdcafb] text-purple-950"
                   } flex flex-col md:gap-1`}
                 >
                   <h2 className="text-4xl md:text-6xl">{item.icon}</h2>
