@@ -119,7 +119,7 @@ const GenerateTrip = ({ formData }) => {
 
   return (
     <div>
-      <div className="items-center px-4 md:px-36 flex flex-col md:flex-row justify-between w-full mt-0  absolute fade-in z-10">
+      <div className="items-center px-4 md:px-10 lg:px-36 flex flex-col md:flex-row justify-between w-full md:mt-10  absolute fade-in z-10">
         <div>
           <h2 className="hidden md:inline">
             <span className="text-3xl md:text-4xl block md:inline">🎉</span>

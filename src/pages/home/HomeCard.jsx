@@ -16,7 +16,7 @@ const HomeCard = ({ image, title, desc }) => {
       ease: "power2.out",
       scrollTrigger: {
         trigger: cardRef.current,
-        start: "top 80%",
+        start: "top 85%",
       },
     });
   }, []);
@@ -24,7 +24,7 @@ const HomeCard = ({ image, title, desc }) => {
   return (
     <div
       ref={cardRef}
-      className="flex flex-col text-center justify-center items-center gap-3 sm:gap-10"
+      className="flex flex-col text-center justify-center items-center gap-3 sm:gap-8"
     >
       <img
         src={image}

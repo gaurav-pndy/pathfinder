@@ -8,12 +8,12 @@ const Hotels = ({ trip }) => {
   }
 
   return (
-    <div className="px-2 md:px-28 mt-8 md:mt-10">
+    <div className="px-2 md:px-10 lg:px-28 mt-8 md:mt-10">
       <h2 className="font-bold text-2xl md:text-4xl  text-blue-950">
         Recommended Hotels:
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-10 mt-3 md:mt-8">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-10 mt-3 md:mt-8">
         {trip?.tripData?.hotels.map((hotel, idx) => (
           <HotelCard key={idx} hotel={hotel} />
         ))}

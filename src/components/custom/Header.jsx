@@ -20,6 +20,7 @@ import { useUser } from "@/context/UserContext";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { CalendarPlus } from "lucide-react";
 
 const Header = () => {
   const { user, setUser } = useUser();
@@ -132,7 +133,7 @@ const Header = () => {
                       : "hover:bg-black hover:text-white"
                   }  transition-all duration-300 text-[9px] px-1 sm:px-2 h-8 md:h-12 md:text-lg `}
                 >
-                  🞤 Create New Trip
+                  <CalendarPlus /> Create New Trip
                 </Button>
               </Link>
 

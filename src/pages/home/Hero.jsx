@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 
@@ -91,14 +91,14 @@ const Hero = () => {
       <div className="hero-text z-10 px-5 lg:px-2 mb-3">
         <h2
           ref={textRef}
-          className="text-center text-[3rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[4rem] font-extrabold mb-6 sm:mb-3 text-blue-100"
+          className="text-center text-[3rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[4rem] font-extrabold mb-6 sm:mb-3 text-blue-100"
         >
           Unlock Your Perfect Journey with{" "}
           <span className="text-[#8f96e4]">Pathfinder</span>
         </h2>
         <h3
           ref={subtextRef}
-          className="text-center text-[1.1rem] md:text-[0.9rem] lg:text-[1.5rem] mb-8 lg:px-5 text-sky-300"
+          className="text-center text-[1.1rem] md:text-[1.2rem] lg:text-[1.5rem] mb-8 lg:px-5 text-sky-300"
         >
           Plan, explore, and make every journey unforgettable. Your perfect trip
           starts here - <br />

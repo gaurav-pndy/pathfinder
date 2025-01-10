@@ -22,7 +22,7 @@ function CreateTrip() {
   useEffect(() => {
     gsap.fromTo(
       ".img-anim",
-      { opacity: 0, scale: 0.5 },
+      { opacity: 0, scale: 0.3 },
       { opacity: 1, scale: 1, duration: 1, ease: "power3.out" }
     );
 
@@ -42,10 +42,10 @@ function CreateTrip() {
 
   return (
     <div className="overflow-hidden create-trip-cont text-blue-950  pt-28 md:pt-36 create-trip-cont ">
-      <h2 className="create-trip-head font-bold px-3 md:px-28 text-2xl sm:text-4xl fade-in">
+      <h2 className="create-trip-head font-bold px-3 md:px-10 lg:px-28 text-2xl sm:text-4xl fade-in">
         Tell Us About Your Dream Getaway! 🌍✨
       </h2>
-      <p className="mt-3 px-4 md:px-28 text-cyan-700 md:text-xl fade-in">
+      <p className="mt-3 px-4 md:px-10 lg:px-28 text-cyan-700 md:text-xl fade-in">
         Answer a few quick questions, and our magical trip planner will whip up
         a personalized itinerary just for you!
       </p>
@@ -54,8 +54,8 @@ function CreateTrip() {
         <img src="/planes.png" alt="" />
       </div>
       <div className="relative  flex flex-col gap-5 md:gap-10">
-        <div className="relative z-10 px-4 md:px-36 flex flex-col md:flex-row fade-in gap-5 md:gap-10">
-          <div className="md:w-1/2">
+        <div className="relative z-10 px-4 md:px-10 lg:px-36 flex flex-col lg:flex-row fade-in gap-5 md:gap-10">
+          <div className="lg:w-1/2">
             <h2 className="text-xl md:text-3xl my-3 font-bold">
               Where do you want to go?
             </h2>
@@ -119,7 +119,7 @@ function CreateTrip() {
             />
           </div>
 
-          <div className="md:w-1/2">
+          <div className="lg:w-1/2">
             <h2 className="text-xl md:text-3xl my-3 font-bold ">
               How many days of adventure?
             </h2>
@@ -131,11 +131,11 @@ function CreateTrip() {
           </div>
         </div>
 
-        <div className="fade-in px-4 md:px-36 z-0">
+        <div className="fade-in px-4 md:px-10 lg:px-36 z-0">
           <h2 className="text-xl md:text-3xl my-3 font-bold">
             What’s your budget vibe?
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 mt-5">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mt-5">
             {BudgetOptions.map((item, idx) => (
               <div
                 key={idx}
@@ -161,11 +161,11 @@ function CreateTrip() {
         </div>
 
         <div className="relative">
-          <div className="fade-in px-4 md:px-36 relative z-10">
+          <div className="fade-in px-4 md:px-10 lg:px-36 relative z-10">
             <h2 className="text-xl md:text-3xl my-3 font-bold">
               Who’s joining you on this adventure?
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 mt-5">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mt-5">
               {NoOfTravellers.map((item, idx) => (
                 <div
                   key={idx}
@@ -194,7 +194,7 @@ function CreateTrip() {
           </div>
 
           <GenerateTrip formData={formData} />
-          <div className="ct-img2 img-anim mt-4 md:-mt-28 z-0">
+          <div className="ct-img2 img-anim mt-4 lg:-mt-28 z-0">
             <img src="/buildings.png" alt="" />
           </div>
         </div>

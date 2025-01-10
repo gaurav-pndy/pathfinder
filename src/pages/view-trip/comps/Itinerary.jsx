@@ -15,7 +15,7 @@ const Itinerary = ({ trip }) => {
   });
 
   return (
-    <div className="px-2 md:px-28">
+    <div className="px-2 md:px-10 lg:px-28">
       <h2 className="font-bold text-2xl md:text-4xl mt-5 text-blue-950">
         Your Personalized Itinerary:
       </h2>
@@ -33,7 +33,7 @@ const Itinerary = ({ trip }) => {
                 Best Time: {day.bestTime}
               </p>
 
-              <div className="grid md:grid-cols-2 gap-5 md:gap-8">
+              <div className="grid lg:grid-cols-2 gap-5 md:gap-8">
                 {day.schedule.map((place, idx) => (
                   <div key={idx}>
                     <Link

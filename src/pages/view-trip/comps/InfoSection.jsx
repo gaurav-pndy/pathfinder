@@ -59,9 +59,9 @@ const InfoSection = ({ trip }) => {
   return (
     <div>
       <div
-        className="view-trip-pic hot-dest h-[75vh] md:h-[95vh] mb-3 flex relative justify-center items-end py-6 md:py-2 "
+        className="view-trip-pic fixed-bg h-[75vh] md:h-[95vh] mb-3 flex relative justify-center items-end py-6 md:py-2 "
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 10, 23, 0.1), rgba(1, 6, 25, 0.5)), url(${
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(${
             loading ? "/planeloading.gif" : photoUrl || "/travelDemo.jpg"
           })`,
           backgroundSize: `${loading ? "auto" : "cover"}`,

@@ -50,7 +50,7 @@ h2 {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.685);
 }
 
-.hot-dest {
+.fixed-bg {
   position: relative;
   background-image: linear-gradient(rgba(0, 10, 23, 0.7), rgba(1, 6, 25, 0.7)),
     url("/destinationBg.jpg");
@@ -171,7 +171,29 @@ h2 {
   padding-left: var(--slide-spacing);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1200px) {
+  .embla__slide {
+    flex: 0 0 40%;
+  }
+
+
+}
+@media (max-width: 820px) {
+  .embla__slide {
+    flex: 0 0 50%;
+  }
+
+
+}
+@media (max-width: 680px) {
+  .embla__slide {
+    flex: 0 0 60%;
+  }
+
+
+}
+
+@media (max-width: 480px) {
   .embla__slide {
     flex: 0 0 90%;
   }
@@ -213,6 +235,7 @@ h2 {
 }
 
 .travel-news h2,
+.how-it-works h2,
 .create-trip-cont .create-trip-head {
   text-shadow: 5px 5px 7px rgba(6, 1, 63, 0.592);
 }
@@ -258,4 +281,15 @@ h2 {
 
 .view-trip-pic {
   border-radius: 0% 0% 50% 50% / 10% 10% 15% 15%;
+}
+
+
+.home-footer{
+  position: relative;
+  background-image: linear-gradient(rgba(0, 10, 23, 0.6), rgba(1, 6, 25, 0.6)),
+    url("/travelfooter.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }

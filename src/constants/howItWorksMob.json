@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+     
+      "image": "step1mob.png"
+    },
+    {
+      "id": 2,
+      
+      "image": "step2mob.png"
+    },
+    {
+      "id": 3,
+      
+      "image": "step3mob.png"
+    },
+    {
+      "id": 4,
+      
+      "image": "step4mob.png"
+    },
+    {
+      "id": 5,
+   
+      "image": "step5mob.png"
+    }
+  ]

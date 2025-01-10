@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import DestinationCard from "./DestinationCard";
 import { GetDestinations } from "@/service/GlobalAPI";
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   NextButton,
@@ -56,7 +56,7 @@ const Destinations = () => {
         }
       },
       {
-        threshold: 0.1,
+        threshold: 0.8,
       }
     );
 
@@ -74,7 +74,7 @@ const Destinations = () => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <div className="hot-dest py-9 xs:py-14 sm:py-6  z-30 h-[105vh] xs:h-screen sm:h-[110vh]  ">
+    <div className="hot-dest fixed-bg py-9 xs:py-14 lg:py-6  z-30 h-[105vh] xs:h-screen lg:h-[110vh]  ">
       <h2 className=" text-3xl xs:text-4xl sm:text-5xl text-orange-300 font-extrabold  text-center  flex justify-center items-end">
         <span className="dest-head "> Hot Destinations </span>{" "}
         <img src="fire.gif" alt="" className="w-9 xs:w-12 sm:w-16" />
@@ -87,7 +87,7 @@ const Destinations = () => {
         <>
           <section
             ref={carouselRef}
-            className="embla relative  my-5 xs:my-8 sm:my-0 "
+            className="embla relative  my-5 xs:my-8 lg:my-0 "
           >
             <div className="embla__viewport  overflow-hidden" ref={emblaRef}>
               <div className="embla__container  ">
@@ -114,18 +114,20 @@ const Destinations = () => {
               </div>
             </div>
           </section>
-          <Link to={"/create-trip"}>
-            <Button variant="customBtn" className="mx-auto animate-bounce ">
-              <>
-                <span className="transition-all duration-1000 md:group-hover:hidden">
-                  Plan a trip Now
-                </span>
-                <span className="group-hover:scale-[500%] transition-transform duration-500">
-                  ❤️‍🔥
-                </span>
-              </>
-            </Button>
-          </Link>
+          <div className="flex justify-center">
+            <Link to={"/create-trip"}>
+              <Button variant="customBtn" className=" animate-bounce ">
+                <>
+                  <span className="transition-all duration-1000 md:group-hover:hidden">
+                    Plan a trip Now
+                  </span>
+                  <span className="group-hover:scale-[500%] transition-transform duration-500">
+                    🛫
+                  </span>
+                </>
+              </Button>
+            </Link>
+          </div>
         </>
       )}
     </div>
