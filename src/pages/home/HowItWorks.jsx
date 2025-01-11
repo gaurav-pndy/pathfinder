@@ -39,24 +39,19 @@ const HowItWorks = () => {
 
   useGSAP(
     () => {
-      gsap.from(
-        ".stagger-step-mob",
-
-        {
-          opacity: 0,
-          scale: 0.5,
-          duration: 1,
-          stagger: 1,
-          scrollTrigger: {
-            trigger: stepRefMob.current,
-
-            markers: true,
-            start: "top 80%",
-            end: "bottom 55%",
-            scrub: 1,
-          },
-        }
-      );
+      gsap.from(".stagger-step-mob", {
+        opacity: 0,
+        scale: 0.5,
+        duration: 1,
+        stagger: 1,
+        scrollTrigger: {
+          trigger: stepRefMob.current,
+          markers: true,
+          start: "top bottom", // Start when the top of the element reaches the top of the viewport
+          end: "bottom 50%", // End when the bottom of the element reaches the bottom of the viewport
+          scrub: 1,
+        },
+      });
     },
     { scope: stepRefMob }
   );
@@ -68,7 +63,7 @@ const HowItWorks = () => {
         <img src="how.gif" alt="" className="h-20 sm:h-28 " />
       </h2>
 
-      <div ref={stepRefPc} className="hidden lg:block mx-auto sm:mt-10  ">
+      <div ref={stepRefPc} className="hidden lg:block mx-auto mt-10  ">
         {howItWorks.map((step) => (
           <div key={step.id}>
             <img
@@ -80,14 +75,10 @@ const HowItWorks = () => {
         ))}
       </div>
 
-      <div ref={stepRefMob} className="block lg:hidden    ">
+      <div ref={stepRefMob} className="block lg:hidden   ">
         {howItWorksMob.map((step) => (
           <div key={step.id}>
-            <img
-              src={step.image}
-              alt=""
-              className="stagger-step-mob scale-110"
-            />
+            <img src={step.image} alt="" className="stagger-step-mob" />
           </div>
         ))}
       </div>
