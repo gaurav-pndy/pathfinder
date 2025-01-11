@@ -31,7 +31,7 @@ const DestinationCard = ({ destination }) => {
   }
 
   return (
-    <div className="bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10 hover:scale-105 cursor-pointer -rotate-[4deg]   hover:rotate-0  transition-all duration-300 ease-in-out">
+    <div className="bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10 hover:scale-105 cursor-pointer -rotate-[4deg]   md:hover:rotate-0  transition-all duration-300 ease-in-out">
       <div className="overflow-hidden flex justify-center">
         <img
           src={photoUrl || "/binoculars.gif"}

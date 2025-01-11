@@ -20,12 +20,14 @@ const HowItWorks = () => {
 
         {
           opacity: 0,
-          duration: 1,
+          scale: 0.5,
+          duration: 0.8,
           stagger: 1,
           scrollTrigger: {
             trigger: stepRefPc.current,
-            start: "top 80%",
-            end: "bottom 50%",
+
+            start: "top 90%",
+            end: "bottom 90%",
             scrub: 1,
           },
         }
@@ -41,12 +43,14 @@ const HowItWorks = () => {
 
         {
           opacity: 0,
+          scale: 0.5,
           duration: 1,
           stagger: 1,
           scrollTrigger: {
             trigger: stepRefMob.current,
-            start: "top 60%",
-            end: "bottom 50%",
+
+            start: "top 80%",
+            end: "bottom 55%",
             scrub: 1,
           },
         }
