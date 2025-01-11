@@ -26,7 +26,7 @@ const HowItWorks = () => {
           scrollTrigger: {
             trigger: stepRefPc.current,
 
-            markers: true,
+            // markers: true,
             start: "top 90%",
             end: "bottom 90%",
             scrub: 1,
@@ -50,6 +50,7 @@ const HowItWorks = () => {
           scrollTrigger: {
             trigger: stepRefMob.current,
 
+            markers: true,
             start: "top 80%",
             end: "bottom 55%",
             scrub: 1,
