@@ -3,13 +3,12 @@ import { BudgetOptions, NoOfTravellers } from "@/constants/options";
 import React, { useState, useEffect } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import gsap from "gsap";
-import { useNavigate } from "react-router-dom";
+
 import GenerateTrip from "./GenerateTrip";
 
 function CreateTrip() {
   const [place, setPlace] = useState();
   const [formData, setFormData] = useState([]);
-  const navigate = useNavigate();
 
   function handleInputChange(name, value) {
     setFormData((prevData) => ({

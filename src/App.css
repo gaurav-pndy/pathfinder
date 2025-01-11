@@ -52,7 +52,7 @@ h2 {
 
 .fixed-bg {
   position: relative;
-  background-image: linear-gradient(rgba(0, 10, 23, 0.7), rgba(1, 6, 25, 0.7)),
+  background-image: linear-gradient(rgba(0, 10, 23, 0.6), rgba(1, 6, 25, 0.6)),
     url("/destinationBg.jpg");
   background-size: cover;
   background-position: center;
@@ -62,9 +62,8 @@ h2 {
 
 .hero-section {
   position: relative;
-  height: 99vh;
+  height: 100vh;
   overflow: hidden;
-  border-radius: 0% 0% 40% 40% / 10% 10% 10% 10%;
 }
 
 .hero-section video {
@@ -83,21 +82,11 @@ h2 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 99vh;
+  height: 100vh;
   background: linear-gradient(rgba(0, 1, 44, 0.1), rgba(0, 7, 39, 0.6));
   z-index: 1;
-  border-radius: 0% 0% 40% 40% / 10% 10% 10% 10%;
 }
 
-.hot-dest h2 .dest-head {
-  text-shadow: 1px 1px 6px rgba(91, 24, 2, 0.4);
-
-  background: linear-gradient(90deg, yellow, orangered);
-  font-family: "Lobster", serif;
-  font-weight: 500;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 
 .stroked-text {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.685);
@@ -107,33 +96,6 @@ h2 {
   display: grid;
   place-items: center;
   height: 30vh;
-}
-
-.loader div {
-  transform: scale(0);
-  animation: animate 1.5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(63, 9, 157, 0.6);
-}
-
-@keyframes animate {
-  0%,
-  100% {
-    transform: scale(0.2);
-    background-color: #fff;
-    opacity: 0;
-  }
-
-  40% {
-    transform: scale(1);
-    background-color: rgb(76, 223, 43);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1);
-    background-color: rgb(190, 46, 46);
-    opacity: 0.9;
-  }
 }
 
 .dest-card-text {
@@ -154,7 +116,7 @@ h2 {
   overflow: hidden;
 
   --slide-spacing: 3rem;
-  --slide-size: 28%;
+  --slide-size: 25%;
 }
 .embla__viewport {
   overflow: hidden;
@@ -175,64 +137,27 @@ h2 {
   .embla__slide {
     flex: 0 0 40%;
   }
-
-
 }
 @media (max-width: 820px) {
   .embla__slide {
     flex: 0 0 50%;
   }
-
-
 }
-@media (max-width: 680px) {
+@media (max-width: 620px) {
   .embla__slide {
-    flex: 0 0 60%;
+    flex: 0 0  58%;
   }
-
-
 }
 
 @media (max-width: 480px) {
   .embla__slide {
-    flex: 0 0 90%;
+    flex: 0 0 70%;
   }
 
-  .hero-section {
-    border-radius: 0% 0% 49% 49% / 10% 10% 15% 15%;
-  }
-  .hero-section::before {
-    border-radius: 0% 0% 49% 49% / 10% 10% 15% 15%;
-  }
+
 }
 
-.embla__button {
-  appearance: none;
-  background-color: transparent;
-  touch-action: manipulation;
-  display: inline-flex;
-  text-decoration: none;
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
-  width: 3.6rem;
-  height: 3.6rem;
-  z-index: 1;
-  border-radius: 50%;
-  color: var(--text-body);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.embla__button:disabled {
-  color: var(--detail-high-contrast);
-}
-.embla__button__svg {
-  width: 35%;
-  height: 35%;
-}
+
 
 .travel-news h2,
 .how-it-works h2,
@@ -283,8 +208,7 @@ h2 {
   border-radius: 0% 0% 50% 50% / 10% 10% 15% 15%;
 }
 
-
-.home-footer{
+.home-footer {
   position: relative;
   background-image: linear-gradient(rgba(0, 10, 23, 0.6), rgba(1, 6, 25, 0.6)),
     url("/travelfooter.jpg");
@@ -292,4 +216,8 @@ h2 {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+.polaroid-photo {
+  filter: brightness(0.9) sepia(0.3);
 }

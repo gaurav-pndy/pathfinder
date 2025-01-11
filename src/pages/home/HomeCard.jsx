@@ -32,10 +32,10 @@ const HomeCard = ({ image, title, desc }) => {
         loading="lazy"
         className="w-32 h-32 sm:w-48 sm:h-48"
       />
-      <h3 className="text-lg sm:text-2xl font-semibold text-blue-950">
+      <h3 className="leading-5 xs:leading-normal xs:text-lg sm:text-2xl font-semibold text-blue-950">
         {title}
       </h3>
-      <span className="text-cyan-800 leading-5 text-xs sm:text-base">
+      <span className="text-cyan-800 leading-4 xs:leading-5 text-xs sm:text-base">
         {desc}
       </span>
     </div>

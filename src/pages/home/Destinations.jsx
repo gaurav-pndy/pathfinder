@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import DestinationCard from "./DestinationCard";
 import { GetDestinations } from "@/service/GlobalAPI";
-import { Button } from "../../components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
-import {
-  NextButton,
-  PrevButton,
-  usePrevNextButtons,
-} from "./EmblaArrowButtons";
-import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
 
 const Destinations = () => {
@@ -29,8 +22,9 @@ const Destinations = () => {
   const carouselRef = useRef();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({
-      delay: 2000,
+      delay: 4000,
       stopOnInteraction: false,
+      stopOnMouseEnter: true,
     }),
   ]);
 
@@ -67,18 +61,8 @@ const Destinations = () => {
     return () => observer.disconnect();
   }, [emblaApi]);
 
-  const {
-    prevBtnDisabled,
-    nextBtnDisabled,
-    onPrevButtonClick,
-    onNextButtonClick,
-  } = usePrevNextButtons(emblaApi);
   return (
-    <div className="hot-dest fixed-bg py-9 xs:py-14 lg:py-6  z-30 h-[105vh] xs:h-screen lg:h-[110vh]  ">
-      <h2 className=" text-3xl xs:text-4xl sm:text-5xl text-orange-300 font-extrabold  text-center  flex justify-center items-end">
-        <span className="dest-head "> Hot Destinations </span>{" "}
-        <img src="fire.gif" alt="" className="w-9 xs:w-12 sm:w-16" />
-      </h2>
+    <div className="hot-dest fixed-bg flex items-center justify-center h-[60vh] sm:mt-24 sm:h-[75vh] ">
       {loading ? (
         <div className="flex justify-center items-center mt-12">
           <img src="binocular.gif" alt="Loading..." className="w-40" />
@@ -101,33 +85,8 @@ const Destinations = () => {
             <div
               className="embla__controls absolute top-[40%] w-full 
             "
-            >
-              <div className="embla__buttons  w-full flex justify-between">
-                <PrevButton
-                  onClick={onPrevButtonClick}
-                  disabled={prevBtnDisabled}
-                />
-                <NextButton
-                  onClick={onNextButtonClick}
-                  disabled={nextBtnDisabled}
-                />
-              </div>
-            </div>
+            ></div>
           </section>
-          <div className="flex justify-center">
-            <Link to={"/create-trip"}>
-              <Button variant="customBtn" className=" animate-bounce ">
-                <>
-                  <span className="transition-all duration-1000 md:group-hover:hidden">
-                    Plan a trip Now
-                  </span>
-                  <span className="group-hover:scale-[500%] transition-transform duration-500">
-                    🛫
-                  </span>
-                </>
-              </Button>
-            </Link>
-          </div>
         </>
       )}
     </div>

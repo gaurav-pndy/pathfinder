@@ -11,7 +11,6 @@ const Hero = () => {
   const buttonRef = useRef(null);
   const videoRef = useRef(null);
 
-  // GSAP animation optimizations
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.fromTo(
@@ -39,23 +38,19 @@ const Hero = () => {
       );
   }, []);
 
-  // IntersectionObserver for video (optimizing play/pause)
   useEffect(() => {
     const video = videoRef.current;
 
-    // Lazy loading video when it is almost visible
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Play the video only when it's 80% visible in viewport
           video.play();
         } else {
-          // Pause the video when it's not visible in viewport
           video.pause();
         }
       },
       {
-        threshold: 0.8, // Trigger when 80% of the video is in the viewport
+        threshold: 0.8,
       }
     );
 
@@ -63,7 +58,6 @@ const Hero = () => {
       observer.observe(video);
     }
 
-    // Cleanup when the component is unmounted
     return () => {
       if (video) {
         observer.unobserve(video);
@@ -74,15 +68,14 @@ const Hero = () => {
   return (
     <div
       ref={heroRef}
-      className="hero-section flex justify-center items-center flex-col-reverse sm:flex-row rounded-b-full sm:rounded-b-[10%]"
+      className="hero-section flex justify-center items-center flex-col-reverse sm:flex-row "
     >
-      {/* Lazy load the video */}
       <video
         ref={videoRef}
         autoPlay
         loop
         muted
-        loading="lazy" // Lazy load video when it is needed
+        loading="lazy"
         className="w-full h-auto object-cover"
       >
         <source src="herobgvideo.mp4" type="video/mp4" />

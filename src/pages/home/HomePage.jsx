@@ -11,12 +11,13 @@ const HomePage = () => {
   return (
     <div className="home-page-cont  ">
       <Hero />
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-14 mx-3 lg:mx-20 my-6 sm:my-20">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 xs:gap-4 sm:gap-14 mx-3 lg:mx-20 my-6 sm:my-20">
         {homeCardsData.map(({ id, image, title, desc }) => (
           <HomeCard key={id} image={image} title={title} desc={desc} />
         ))}
       </div>
       <Destinations />
+
       <HowItWorks />
       <TravelNews />
       <Footer />

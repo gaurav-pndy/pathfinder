@@ -17,7 +17,6 @@ const TravelNews = () => {
         }
         const data = await response.json();
         setNewsArray(data.results);
-        console.log("newsArray");
       } catch (error) {
         console.error("Failed to fetch travel news:", error);
       }

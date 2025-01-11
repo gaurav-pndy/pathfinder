@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { GetPhotoRefUrl, GetPlaceDetails } from "@/service/GlobalAPI";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { FaPaperPlane } from "react-icons/fa";
 
 const HotelCard = ({ hotel }) => {

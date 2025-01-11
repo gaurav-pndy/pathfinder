@@ -45,8 +45,8 @@ const HowItWorks = () => {
           stagger: 1,
           scrollTrigger: {
             trigger: stepRefMob.current,
-            start: "top 90%",
-            end: "bottom 70%",
+            start: "top 60%",
+            end: "bottom 50%",
             scrub: 1,
           },
         }
@@ -77,7 +77,11 @@ const HowItWorks = () => {
       <div ref={stepRefMob} className="block lg:hidden    ">
         {howItWorksMob.map((step) => (
           <div key={step.id}>
-            <img src={step.image} alt="" className="stagger-step-mob " />
+            <img
+              src={step.image}
+              alt=""
+              className="stagger-step-mob scale-110"
+            />
           </div>
         ))}
       </div>

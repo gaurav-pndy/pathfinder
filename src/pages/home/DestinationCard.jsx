@@ -24,18 +24,20 @@ const DestinationCard = ({ destination }) => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center mt-10 h-64">
+      <div className="flex justify-center items-center w-60 h-60 xs:w-72 xs:h-72 sm:w-80 sm:h-80">
         <img src="binocular.gif" alt="Loading..." className="w-10 xs:w-20" />
       </div>
     );
   }
 
   return (
-    <div className="bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10">
-      <img
-        src={photoUrl || "/binoculars.gif"}
-        className="w-80 h-80 xs:w-96 xs:h-96 object-cover "
-      />
+    <div className="bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10 hover:scale-105 cursor-pointer -rotate-[4deg]   hover:rotate-0  transition-all duration-300 ease-in-out">
+      <div className="overflow-hidden flex justify-center">
+        <img
+          src={photoUrl || "/binoculars.gif"}
+          className="w-60 h-60 xs:w-72 xs:h-72 sm:w-80 sm:h-80 object-cover polaroid-photo "
+        />
+      </div>
       <h2 className=" dest-card-text mt-2 text-2xl sm:text-3xl  text-center text-slate-700 py-4">
         {destination.displayName.text}
       </h2>

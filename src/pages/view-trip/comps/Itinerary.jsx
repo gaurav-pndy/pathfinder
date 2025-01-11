@@ -8,7 +8,6 @@ const Itinerary = ({ trip }) => {
   }
 
   const sortedDays = Object.keys(trip.tripData.itinerary).sort((a, b) => {
-    // Extract numeric values from "day1", "day2", etc.
     const dayA = parseInt(a.replace("day", ""), 10);
     const dayB = parseInt(b.replace("day", ""), 10);
     return dayA - dayB;

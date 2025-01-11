@@ -35,7 +35,7 @@ const ViewTrip = () => {
           <Itinerary trip={trip} />
         </>
       ) : (
-        <div>Loading trip details...</div> // Avoid rendering until trip is loaded
+        <div>Loading trip details...</div>
       )}
     </div>
   );
