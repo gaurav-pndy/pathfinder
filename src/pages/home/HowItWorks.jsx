@@ -26,6 +26,7 @@ const HowItWorks = () => {
           scrollTrigger: {
             trigger: stepRefPc.current,
 
+            markers: true,
             start: "top 90%",
             end: "bottom 90%",
             scrub: 1,
