@@ -48,7 +48,7 @@ const HowItWorks = () => {
           trigger: stepRefMob.current,
           markers: true,
           start: "top bottom", // Start when the top of the element reaches the top of the viewport
-          end: "bottom top", // End when the bottom of the element reaches the bottom of the viewport
+          end: "bottom 10%", // End when the bottom of the element reaches the bottom of the viewport
           scrub: 1,
         },
       });
