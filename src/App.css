@@ -115,7 +115,7 @@ h2 {
 .embla {
   overflow: hidden;
 
-  --slide-spacing: 3rem;
+  --slide-spacing: 5rem;
   --slide-size: 25%;
 }
 .embla__viewport {
@@ -139,8 +139,11 @@ h2 {
   }
 }
 @media (max-width: 820px) {
+  
   .embla__slide {
     flex: 0 0 50%;
+    padding-left: 3rem;
+
   }
 }
 @media (max-width: 620px) {
@@ -221,3 +224,7 @@ h2 {
 .polaroid-photo {
   filter: brightness(0.9) sepia(0.1);
 }
+
+/* .dest-card:hover {
+  transform: scale(2) rotate(0deg);
+} */

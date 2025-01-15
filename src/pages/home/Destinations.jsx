@@ -4,11 +4,14 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import destinations from "../../constants/destinations";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const Destinations = () => {
   const carouselRef = useRef();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({
-      delay: 4000,
+      delay: 3000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     }),
@@ -47,26 +50,48 @@ const Destinations = () => {
     return () => observer.disconnect();
   }, [emblaApi]);
 
+  const destRef = useRef();
+
+  useGSAP(() => {
+    gsap.from(destRef.current, {
+      height: "0vh",
+
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: destRef.current,
+        start: "top 80%",
+        end: "top 30%",
+        // markers: true,
+        scrub: 1,
+      },
+    });
+  });
+
   return (
-    <div className="hot-dest fixed-bg flex items-center justify-center h-[60vh] sm:mt-24 sm:h-[75vh] ">
-      <section
-        ref={carouselRef}
-        className="embla relative  my-5 xs:my-8 lg:my-0 "
+    <div className="h-[60vh] sm:mt-24 sm:h-[80vh] ">
+      <div
+        ref={destRef}
+        className="hot-dest fixed-bg overflow-hidden flex items-center justify-center "
       >
-        <div className="embla__viewport  overflow-hidden" ref={emblaRef}>
-          <div className="embla__container  ">
-            {destinations.map((destination) => (
-              <div key={destination.id} className="embla__slide ">
-                <DestinationCard destination={destination} />
-              </div>
-            ))}
+        <section
+          ref={carouselRef}
+          className="embla relative  my-5 xs:my-8 lg:my-10 "
+        >
+          <div className="embla__viewport  overflow-hidden" ref={emblaRef}>
+            <div className="embla__container  ">
+              {destinations.map((destination) => (
+                <div key={destination.id} className="embla__slide ">
+                  <DestinationCard destination={destination} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div
-          className="embla__controls absolute top-[40%] w-full 
+          <div
+            className="embla__controls absolute top-[40%] w-full 
             "
-        ></div>
-      </section>
+          ></div>
+        </section>
+      </div>
     </div>
   );
 };

@@ -1,13 +1,10 @@
 import React, { useRef } from "react";
 import howItWorks from "../../constants/howItWorks";
 import howItWorksMob from "../../constants/howItWorksMob";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const HowItWorks = () => {
   const stepRefPc = useRef();
@@ -26,8 +23,7 @@ const HowItWorks = () => {
           scrollTrigger: {
             trigger: stepRefPc.current,
 
-            // markers: true,
-            start: "top 90%",
+            start: "top bottom",
             end: "bottom 90%",
             scrub: 1,
           },
@@ -47,8 +43,8 @@ const HowItWorks = () => {
         scrollTrigger: {
           trigger: stepRefMob.current,
 
-          start: "top bottom", // Start when the top of the element reaches the top of the viewport
-          end: "bottom 10%", // End when the bottom of the element reaches the bottom of the viewport
+          start: "top bottom",
+          end: "bottom 10%",
           scrub: 1,
         },
       });
