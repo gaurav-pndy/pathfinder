@@ -219,5 +219,5 @@ h2 {
 }
 
 .polaroid-photo {
-  filter: brightness(0.9) sepia(0.3);
+  filter: brightness(0.9) sepia(0.1);
 }

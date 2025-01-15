@@ -17,5 +17,5 @@ export const GetPhotoRefUrl = (name) =>
     import.meta.env.VITE_GOOGLE_PLACES_API_KEY
   }`;
 
-export const GetDestinations = () =>
-  axios.post(BASE_URL, { textQuery: "trending tourist cities" }, config);
+// export const GetDestinations = () =>
+//   axios.post(BASE_URL, { textQuery: "trending tourist cities" }, config);

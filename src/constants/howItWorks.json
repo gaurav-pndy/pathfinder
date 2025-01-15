@@ -2,26 +2,26 @@
     {
       "id": 1,
      
-      "image": "step1pc.png"
+      "image": "HowToSteps/step1pc.png"
     },
     {
       "id": 2,
       
-      "image": "step2pc.png"
+      "image": "HowToSteps/step2pc.png"
     },
     {
       "id": 3,
       
-      "image": "step3pc.png"
+      "image": "HowToSteps/step3pc.png"
     },
     {
       "id": 4,
       
-      "image": "step4pc.png"
+      "image": "HowToSteps/step4pc.png"
     },
     {
       "id": 5,
    
-      "image": "step5pc.png"
+      "image": "HowToSteps/step5pc.png"
     }
   ]

@@ -1,0 +1,52 @@
+[
+    {
+        "id": 0,
+        "name" : "Paris",
+        "image" : "destinations/paris.jpg"
+    },
+    {
+        "id": 1,
+        "name" : "Rishikesh",
+        "image" : "destinations/rishikesh.jpg"
+    },
+    {
+        "id": 2,
+        "name" : "Singapore",
+        "image" : "destinations/singapore.jpg"
+    },
+    {
+        "id": 3,
+        "name" : "Machu Pichu",
+        "image" : "destinations/machupichu.jpg"
+    },
+    {
+        "id": 4,
+        "name" : "Darjeeling",
+        "image" : "destinations/darjeeling.jpg"
+    },
+    {
+        "id": 5,
+        "name" : "Tokyo",
+        "image" : "destinations/tokyo.jpg"
+    },
+    {
+        "id": 6,
+        "name" : "Nainital",
+        "image" : "destinations/nainital.jpg"
+    },
+    {
+        "id": 7,
+        "name" : "Bali",
+        "image" : "destinations/bali.jpg"
+    },
+    {
+        "id": 8,
+        "name" : "Rome",
+        "image" : "destinations/rome.jpg"
+    },
+    {
+        "id": 9,
+        "name" : "Ladakh",
+        "image" : "destinations/ladakh.jpg"
+    }
+]
