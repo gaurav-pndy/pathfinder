@@ -57,6 +57,8 @@ const Destinations = () => {
       height: "0vh",
 
       duration: 0.8,
+      ease: "power4.out",
+
       scrollTrigger: {
         trigger: destRef.current,
         start: "top 80%",
@@ -68,10 +70,10 @@ const Destinations = () => {
   });
 
   return (
-    <div className="h-[60vh] sm:mt-24 sm:h-[80vh] ">
+    <div className="h-[60vh]  mt-10 sm:mt-24 sm:h-[80vh] ">
       <div
         ref={destRef}
-        className="hot-dest fixed-bg overflow-hidden flex items-center justify-center "
+        className="hot-dest h-full fixed-bg overflow-hidden flex items-center justify-center "
       >
         <section
           ref={carouselRef}
