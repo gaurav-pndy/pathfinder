@@ -59,7 +59,7 @@ const InfoSection = ({ trip }) => {
   return (
     <div>
       <div
-        className="view-trip-pic fixed-bg h-[75vh] md:h-[95vh] mb-3 flex relative justify-center items-end py-6 md:py-2 "
+        className="view-trip-pic fixed-bg h-[75vh] md:h-[110vh] mb-3 flex relative justify-center items-end py-6 md:py-20 "
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(${
             loading ? "/planeloading.gif" : photoUrl || "/travelDemo.jpg"
@@ -71,7 +71,7 @@ const InfoSection = ({ trip }) => {
           ref={textRef}
           className=" text-white  z-10 flex flex-col-reverse md:flex-col gap-3 md:gap-5 items-center "
         >
-          <h2 className=" stagger-text stroked-text font-bold w-[95%] text-center text-3xl md:text-5xl">
+          <h2 className=" stagger-text stroked-text font-bold w-[95%] md:w-full text-center text-3xl md:text-5xl">
             {trip.userSelection.location.label}
           </h2>
           <div className="flex gap-4 text-xs sm:text-sm md:text-lg font-semibold">
@@ -86,7 +86,7 @@ const InfoSection = ({ trip }) => {
             </h2>
             {/* </div> */}
           </div>
-          <p className="text-3xl stagger-text animate-bounce hidden md:block">
+          <p className="text-4xl stagger-text animate-bounce hidden md:block">
             <BsChevronDoubleDown />{" "}
           </p>
         </div>

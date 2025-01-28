@@ -62,8 +62,9 @@ h2 {
 
 .hero-section {
   position: relative;
-  height: 100vh;
+  height: 110vh;
   overflow: hidden;
+  border-radius: 0% 0% 50% 50% / 10% 10% 9% 9% ;
 }
 
 .hero-section video {
@@ -82,9 +83,11 @@ h2 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   background: linear-gradient(rgba(0, 1, 44, 0.1), rgba(0, 7, 39, 0.6));
   z-index: 1;
+  border-radius: 0% 0% 50% 50% / 10% 10% 9% 9% ;
+
 }
 
 
@@ -208,7 +211,9 @@ h2 {
 }
 
 .view-trip-pic {
-  border-radius: 0% 0% 50% 50% / 10% 10% 15% 15%;
+  /* border-radius: 0% 0% 50% 50% / 10% 10% 15% 15%; */
+  border-radius: 0% 0% 50% 50% / 10% 10% 9% 9% ;
+
 }
 
 .home-footer {
