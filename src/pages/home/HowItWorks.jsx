@@ -9,22 +9,23 @@ import { Button } from "@/components/ui/button";
 const HowItWorks = () => {
   const stepRefPc = useRef();
   const stepRefMob = useRef();
+  // const overlayRef = useRef();
 
   useGSAP(
     () => {
-      gsap.from(
-        ".stagger-step",
+      gsap.to(
+        ".cont-overlay",
 
         {
-          opacity: 0,
-          scale: 0.5,
-          duration: 0.8,
+          height: 0,
+          duration: 1,
           stagger: 1,
           scrollTrigger: {
             trigger: stepRefPc.current,
 
-            start: "top bottom",
-            end: "bottom 90%",
+            // markers: true,
+            start: "top 80%",
+            end: "bottom 70%",
             scrub: 1,
           },
         }
@@ -35,14 +36,13 @@ const HowItWorks = () => {
 
   useGSAP(
     () => {
-      gsap.from(".stagger-step-mob", {
-        opacity: 0,
-        scale: 0.5,
+      gsap.to(".mob-overlay", {
+        height: 0,
         duration: 1,
         stagger: 1,
         scrollTrigger: {
           trigger: stepRefMob.current,
-
+          // markers: true,
           start: "top bottom",
           end: "bottom 10%",
           scrub: 1,
@@ -61,7 +61,8 @@ const HowItWorks = () => {
 
       <div ref={stepRefPc} className="hidden lg:block mx-auto mt-10  ">
         {howItWorks.map((step) => (
-          <div key={step.id}>
+          <div className="relative" key={step.id}>
+            <div className="cont-overlay  absolute bottom-0 h-full w-full z-10 der-black bg-[#E4E8FF]"></div>
             <img
               src={step.image}
               alt=""
@@ -73,7 +74,8 @@ const HowItWorks = () => {
 
       <div ref={stepRefMob} className="block lg:hidden   ">
         {howItWorksMob.map((step) => (
-          <div key={step.id}>
+          <div className="relative" key={step.id}>
+            <div className="mob-overlay  absolute bottom-0 h-full w-full z-10 bg-[#E4E8FF]"></div>
             <img src={step.image} alt="" className="stagger-step-mob" />
           </div>
         ))}
