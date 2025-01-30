@@ -28,7 +28,7 @@ const HotelCard = ({ hotel }) => {
   return (
     <div className="rounded-lg mb-5">
       <img
-        src={photoUrl || "/hotelDemo.jpg"}
+        src={photoUrl || "/hotelDemo.webp"}
         alt=""
         className="rounded-xl h-[120px] sm:h-[140px] md:h-[250px] w-full object-cover "
       />

@@ -10,14 +10,13 @@ const DestinationCard = ({ destination }) => {
 
   useGSAP(() => {
     gsap.from(destCardRef.current, {
-      duration: 0.5,
+      duration: 0.8,
       opacity: 0,
       ease: "power4.in",
       scrollTrigger: {
         trigger: destCardRef.current,
         start: "top 80%",
         end: "top 50%",
-        scrub: 1,
       },
     });
   });

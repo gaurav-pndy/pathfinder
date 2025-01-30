@@ -7,19 +7,19 @@
     },
     {
         "id": 2,
-        "image": "/calendar.png",
+        "image": "/calendar.webp",
         "title": "Create Personalized Itinerary",
         "desc": "Choose your destinations, activities, and accommodations – all tailored to your preferences"
     },
     {
         "id": 3,
-        "image": "/customize.png",
+        "image": "/customize.webp",
         "title": "Customize Your Perfect Trip",
         "desc": "Select destination, total days, number of people, and budget to create a tailored itinerary."
     },
     {
         "id": 4,
-        "image": "/budget.png",
+        "image": "/budget.webp",
         "title": "Plan according to your Budget",
         "desc": "Stay within your budget without compromising on your dream trip experience."
     }

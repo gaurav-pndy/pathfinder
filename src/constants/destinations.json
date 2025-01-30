@@ -2,51 +2,51 @@
     {
         "id": 0,
         "name" : "Paris",
-        "image" : "destinations/paris.jpg"
+        "image" : "destinations/paris.webp"
     },
     {
         "id": 1,
         "name" : "Rishikesh",
-        "image" : "destinations/rishikesh.jpg"
+        "image" : "destinations/rishikesh.webp"
     },
     {
         "id": 2,
         "name" : "Singapore",
-        "image" : "destinations/singapore.jpg"
+        "image" : "destinations/singapore.webp"
     },
     {
         "id": 3,
         "name" : "Machu Pichu",
-        "image" : "destinations/machupichu.jpg"
+        "image" : "destinations/machupichu.webp"
     },
     {
         "id": 4,
         "name" : "Darjeeling",
-        "image" : "destinations/darjeeling.jpg"
+        "image" : "destinations/darjeeling.webp"
     },
     {
         "id": 5,
         "name" : "Tokyo",
-        "image" : "destinations/tokyo.jpg"
+        "image" : "destinations/tokyo.webp"
     },
     {
         "id": 6,
         "name" : "Nainital",
-        "image" : "destinations/nainital.jpg"
+        "image" : "destinations/nainital.webp"
     },
     {
         "id": 7,
         "name" : "Bali",
-        "image" : "destinations/bali.jpg"
+        "image" : "destinations/bali.webp"
     },
     {
         "id": 8,
         "name" : "Rome",
-        "image" : "destinations/rome.jpg"
+        "image" : "destinations/rome.webp"
     },
     {
         "id": 9,
         "name" : "Ladakh",
-        "image" : "destinations/ladakh.jpg"
+        "image" : "destinations/ladakh.webp"
     }
 ]

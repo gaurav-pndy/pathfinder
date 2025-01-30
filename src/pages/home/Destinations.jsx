@@ -50,31 +50,26 @@ const Destinations = () => {
     return () => observer.disconnect();
   }, [emblaApi]);
 
-  const destRef = useRef();
+  // useGSAP(() => {
+  //   gsap.from(destRef.current, {
+  //     height: "0vh",
 
-  useGSAP(() => {
-    gsap.from(destRef.current, {
-      height: "0vh",
+  //     duration: 0.8,
+  //     ease: "power4.out",
 
-      duration: 0.8,
-      ease: "power4.out",
-
-      scrollTrigger: {
-        trigger: destRef.current,
-        start: "top 80%",
-        end: "top 30%",
-        // markers: true,
-        scrub: 1,
-      },
-    });
-  });
+  //     scrollTrigger: {
+  //       trigger: destRef.current,
+  //       start: "top 80%",
+  //       end: "top 30%",
+  //       // markers: true,
+  //       scrub: 1,
+  //     },
+  //   });
+  // });
 
   return (
     <div className="h-[60vh]  mt-10 sm:mt-24 sm:h-[80vh] ">
-      <div
-        ref={destRef}
-        className="hot-dest h-full fixed-bg overflow-hidden flex items-center justify-center "
-      >
+      <div className="hot-dest h-full fixed-bg overflow-hidden flex items-center justify-center ">
         <section
           ref={carouselRef}
           className="embla relative  my-5 xs:my-8 lg:my-10 "

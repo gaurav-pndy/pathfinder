@@ -2,26 +2,26 @@
     {
       "id": 1,
      
-      "image": "HowToSteps/step1pc.png"
+      "image": "HowToSteps/step1pc.webp"
     },
     {
       "id": 2,
       
-      "image": "HowToSteps/step2pc.png"
+      "image": "HowToSteps/step2pc.webp"
     },
     {
       "id": 3,
       
-      "image": "HowToSteps/step3pc.png"
+      "image": "HowToSteps/step3pc.webp"
     },
     {
       "id": 4,
       
-      "image": "HowToSteps/step4pc.png"
+      "image": "HowToSteps/step4pc.webp"
     },
     {
       "id": 5,
    
-      "image": "HowToSteps/step5pc.png"
+      "image": "HowToSteps/step5pc.webp"
     }
   ]

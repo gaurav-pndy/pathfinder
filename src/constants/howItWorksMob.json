@@ -2,26 +2,26 @@
     {
       "id": 1,
      
-      "image": "HowToSteps/step1mob.png"
+      "image": "HowToSteps/step1mob.webp"
     },
     {
       "id": 2,
       
-      "image": "HowToSteps/step2mob.png"
+      "image": "HowToSteps/step2mob.webp"
     },
     {
       "id": 3,
       
-      "image": "HowToSteps/step3mob.png"
+      "image": "HowToSteps/step3mob.webp"
     },
     {
       "id": 4,
       
-      "image": "HowToSteps/step4mob.png"
+      "image": "HowToSteps/step4mob.webp"
     },
     {
       "id": 5,
    
-      "image": "HowToSteps/step5mob.png"
+      "image": "HowToSteps/step5mob.webp"
     }
   ]
