@@ -25,7 +25,7 @@ const HowItWorks = () => {
 
             // markers: true,
             start: "top 80%",
-            end: "bottom 70%",
+            end: "bottom 80%",
             scrub: 1,
           },
         }
