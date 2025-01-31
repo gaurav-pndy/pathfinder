@@ -1,11 +1,15 @@
 import { GetPhotoRefUrl, GetPlaceDetails } from "@/service/GlobalAPI";
-import React, { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import React, { useEffect, useRef, useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
 const HotelCard = ({ hotel }) => {
   if (!hotel) {
     return <div></div>;
   }
+
+  const cardRef = useRef();
 
   const [photoUrl, setPhotoUrl] = useState();
 
@@ -25,8 +29,21 @@ const HotelCard = ({ hotel }) => {
     });
   };
 
+  useGSAP(() => {
+    gsap.from(cardRef.current, {
+      y: 80,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: cardRef.current,
+        start: "top 85%",
+      },
+    });
+  }, []);
+
   return (
-    <div className="rounded-lg mb-5">
+    <div ref={cardRef} className="rounded-lg mb-5">
       <img
         src={photoUrl || "/hotelDemo.webp"}
         alt=""

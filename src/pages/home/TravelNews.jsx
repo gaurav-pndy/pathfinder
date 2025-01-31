@@ -27,9 +27,13 @@ const TravelNews = () => {
 
   return (
     <div className="travel-news my-8 sm:my-16 px-2 md:px-8 lg:px-20">
-      <h2 className="text-3xl sm:text-5xl text-blue-950 font-bold mb-5 flex  items-center md:gap-2">
-        What's New in Tourism ?
-        <img src="globetravel.gif" alt="" className="h-20 sm:h-28 " />
+      <h2 className="text-3xl sm:text-6xl text-blue-950 font-bold mb-10 flex  items-center md:gap-2 justify-center">
+        <span className="z-10">What's New in Tourism ?</span>
+        <img
+          src="planegif.gif"
+          alt=""
+          className="h-36 sm:h-60 absolute opacity-50"
+        />
       </h2>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:px-0 sm:gap-10">

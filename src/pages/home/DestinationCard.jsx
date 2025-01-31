@@ -1,3 +1,4 @@
+import CustomCursor from "@/components/custom/CustomCursor";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef, useState } from "react";
@@ -17,7 +18,7 @@ const DestinationCard = ({ destination }) => {
         trigger: destCardRef.current,
         start: "top 80%",
         end: "top 50%",
-        once: true, // Ensures animation only runs once
+        once: true,
       },
     });
   });
@@ -47,23 +48,14 @@ const DestinationCard = ({ destination }) => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      {/* Custom Cursor Box */}
       {isHovering && (
-        <div
-          className="absolute hidden md:flex w-16 h-16 p-2 pt-3 bg-[#5344fbcf] rounded-full 
-          pointer-events-none z-10 text-white text-center leading-4 text-sm items-center justify-center"
-          style={{
-            top: `${cursorPos.y}px`,
-            left: `${cursorPos.x}px`,
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          Plan Now
-          <br />➝
-        </div>
+        <CustomCursor
+          cardRef={destCardRef}
+          cursorPos={cursorPos}
+          text="Plan Now"
+        />
       )}
 
-      {/* Image */}
       <div className="overflow-hidden flex justify-center">
         <img
           loading="lazy"
@@ -72,7 +64,6 @@ const DestinationCard = ({ destination }) => {
         />
       </div>
 
-      {/* Destination Name */}
       <h2 className="dest-card-text mt-2 text-2xl sm:text-3xl text-center text-slate-700 py-4">
         {destination.name}
       </h2>

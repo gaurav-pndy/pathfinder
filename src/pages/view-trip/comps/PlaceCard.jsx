@@ -1,10 +1,17 @@
+import CustomCursor from "@/components/custom/CustomCursor";
 import { GetPhotoRefUrl, GetPlaceDetails } from "@/service/GlobalAPI";
-import React, { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import React, { useEffect, useRef, useState } from "react";
 
 const PlaceCard = ({ place, trip }) => {
   if (!place || !trip) {
     return <div></div>;
   }
+
+  const cardRef = useRef();
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
 
   const [photoUrl, setPhotoUrl] = useState();
 
@@ -32,8 +39,50 @@ const PlaceCard = ({ place, trip }) => {
     });
   };
 
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      setCursorPos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    });
+  };
+
+  useGSAP(() => {
+    gsap.from(cardRef.current, {
+      x: -80,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: {
+        each: 0.2,
+      },
+      scrollTrigger: {
+        trigger: cardRef.current,
+        start: "top 85%",
+      },
+    });
+  }, []);
+
   return (
-    <div className="place-card mx-1 md:mx-0 relative rounded-lg shadow-md shadow-slate-400 overflow-hidden h-[210px] sm:h-[230px] md:h-[400px]">
+    <div
+      ref={cardRef}
+      className="place-card mx-1 md:mx-0 relative rounded-lg shadow-md shadow-slate-400 overflow-hidden h-[210px] sm:h-[230px] md:h-[400px] cursor-none"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {isHovering && (
+        <CustomCursor
+          cardRef={cardRef}
+          cursorPos={cursorPos}
+          text="View on Map
+      "
+        />
+      )}
       <img
         src={photoUrl || "/noimage.png"}
         alt="Place"

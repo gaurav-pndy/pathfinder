@@ -53,10 +53,14 @@ const HowItWorks = () => {
   );
 
   return (
-    <div className="how-it-works  mt-8 mb-10 sm:my-16 px-2 md:px-8 lg:px-20">
-      <h2 className="text-3xl sm:text-5xl text-blue-950 font-bold  sm:mb-4 flex items-center justify-between sm:justify-normal md:gap-2">
-        How It Works ?
-        <img src="how.gif" alt="" className="h-[4.5rem] sm:h-28 " />
+    <div className="how-it-works  mt-8 mb-10 sm:my-20 px-2 md:px-8 lg:px-20">
+      <h2 className="text-3xl sm:text-6xl text-blue-950 font-bold mb-7  sm:mb-20 flex items-center justify-center md:gap-2">
+        <span className="z-10"> How It Works ?</span>
+        <img
+          src="how.gif"
+          alt=""
+          className="h-24 sm:h-52 opacity-30 absolute"
+        />
       </h2>
 
       <div ref={stepRefPc} className="hidden lg:block mx-auto mt-10  ">
