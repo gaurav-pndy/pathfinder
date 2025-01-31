@@ -12,7 +12,7 @@ const NewsCard = ({ news }) => {
     gsap.from(newsCardRef.current, {
       opacity: 0,
       y: 80,
-      duration: 1,
+      duration: 1.5,
       ease: "power3.out",
       scrollTrigger: {
         trigger: newsCardRef.current,

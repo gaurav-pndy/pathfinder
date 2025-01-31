@@ -4,9 +4,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import destinations from "../../constants/destinations";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-
 const Destinations = () => {
   const carouselRef = useRef();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
@@ -33,14 +30,12 @@ const Destinations = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          handlePlay();
+          setTimeout(handlePlay, 100); // Add delay to prevent rapid toggling
         } else {
           handleStop();
         }
       },
-      {
-        threshold: 0.8,
-      }
+      { threshold: 0.8 }
     );
 
     if (carouselRef.current) {
@@ -50,45 +45,26 @@ const Destinations = () => {
     return () => observer.disconnect();
   }, [emblaApi]);
 
-  // useGSAP(() => {
-  //   gsap.from(destRef.current, {
-  //     height: "0vh",
-
-  //     duration: 0.8,
-  //     ease: "power4.out",
-
-  //     scrollTrigger: {
-  //       trigger: destRef.current,
-  //       start: "top 80%",
-  //       end: "top 30%",
-  //       // markers: true,
-  //       scrub: 1,
-  //     },
-  //   });
-  // });
-
   return (
-    <div className="h-[60vh]  mt-10 sm:mt-24 sm:h-[80vh] ">
-      <div className="hot-dest h-full fixed-bg overflow-hidden flex items-center justify-center ">
-        <section
-          ref={carouselRef}
-          className="embla relative  my-5 xs:my-8 lg:my-10 "
-        >
-          <div className="embla__viewport  overflow-hidden" ref={emblaRef}>
-            <div className="embla__container  ">
-              {destinations.map((destination) => (
-                <div key={destination.id} className="embla__slide ">
-                  <DestinationCard destination={destination} />
-                </div>
-              ))}
-            </div>
+    <div className="hot-dest  fixed-bg overflow-hidden flex items-center justify-center h-[60vh]  mt-10 sm:mt-24 sm:h-[80vh]">
+      <section
+        ref={carouselRef}
+        className="embla relative  my-5 xs:my-8 lg:my-10 "
+      >
+        <div className="embla__viewport  overflow-hidden" ref={emblaRef}>
+          <div className="embla__container  ">
+            {destinations.map((destination) => (
+              <div key={destination.id} className="embla__slide ">
+                <DestinationCard destination={destination} />
+              </div>
+            ))}
           </div>
-          <div
-            className="embla__controls absolute top-[40%] w-full 
+        </div>
+        <div
+          className="embla__controls absolute top-[40%] w-full 
             "
-          ></div>
-        </section>
-      </div>
+        ></div>
+      </section>
     </div>
   );
 };

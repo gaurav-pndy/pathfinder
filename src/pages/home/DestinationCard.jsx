@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const DestinationCard = ({ destination }) => {
-  const destCardRef = useRef();
+  const destCardRef = useRef(null);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -17,18 +17,20 @@ const DestinationCard = ({ destination }) => {
         trigger: destCardRef.current,
         start: "top 80%",
         end: "top 50%",
+        once: true, // Ensures animation only runs once
       },
     });
   });
 
   const handleMouseMove = (e) => {
-    const rect = destCardRef.current.getBoundingClientRect();
-    const scaleX = destCardRef.current.offsetWidth / rect.width; // Fix for scale
-    const scaleY = destCardRef.current.offsetHeight / rect.height; // Fix for scale
+    if (!destCardRef.current) return;
 
-    setCursorPos({
-      x: (e.clientX - rect.left) * scaleX,
-      y: (e.clientY - rect.top) * scaleY,
+    const rect = destCardRef.current.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      setCursorPos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
     });
   };
 
@@ -38,7 +40,9 @@ const DestinationCard = ({ destination }) => {
     <div
       onClick={() => navigate("/create-trip")}
       ref={destCardRef}
-      className="relative bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10 md:hover:scale-110 -rotate-[4deg] md:hover:rotate-0 transition-all duration-300 ease-in-out overflow-hidden md:cursor-none"
+      className="relative bg-[#eaeaea] p-5 dest-card shadow-lg shadow-gray-800 my-10 md:hover:scale-110 
+      -rotate-[4deg] md:hover:rotate-0 transition-all duration-300 ease-in-out overflow-hidden md:cursor-none 
+      will-change-transform"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -46,7 +50,8 @@ const DestinationCard = ({ destination }) => {
       {/* Custom Cursor Box */}
       {isHovering && (
         <div
-          className="absolute hidden md:flex w-16 h-16 p-2 pt-3 bg-[#5344fbcf] rounded-full pointer-events-none z-10 text-white text-center leading-4 text-sm items-center  justify-center "
+          className="absolute hidden md:flex w-16 h-16 p-2 pt-3 bg-[#5344fbcf] rounded-full 
+          pointer-events-none z-10 text-white text-center leading-4 text-sm items-center justify-center"
           style={{
             top: `${cursorPos.y}px`,
             left: `${cursorPos.x}px`,
