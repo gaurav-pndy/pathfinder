@@ -194,7 +194,7 @@ function CreateTrip() {
 
           <GenerateTrip formData={formData} />
           <div className="ct-img2 img-anim mt-4 lg:-mt-28 z-0">
-            <img src="/buildings.png" alt="" />
+            <img src="/buildings.webp" alt="" />
           </div>
         </div>
       </div>
