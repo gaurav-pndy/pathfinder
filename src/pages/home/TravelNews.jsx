@@ -26,8 +26,8 @@ const TravelNews = () => {
   }, []);
 
   return (
-    <div className="travel-news my-8 sm:my-16 px-2 md:px-8 lg:px-20">
-      <h2 className="text-3xl sm:text-6xl text-blue-950 font-bold mb-10 flex  items-center md:gap-2 justify-center">
+    <div className="travel-news my-20 sm:my-40 px-2 md:px-8 lg:px-20">
+      <h2 className="text-3xl sm:text-6xl text-blue-950 font-bold mb-16 sm:mb-24 flex  items-center md:gap-2 justify-center">
         <span className="z-10">What's New in Tourism ?</span>
         <img
           src="planegif.gif"
