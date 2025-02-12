@@ -63,7 +63,7 @@ const HowItWorks = () => {
             className="h-24 sm:h-52 opacity-30 absolute"
           />
         </h2>
-        <p className="text-xs md:text-xl text-cyan-900">
+        <p className="text-sm md:text-xl text-cyan-900">
           Planning your trip has never been easier! Our AI-powered trip planner
           creates a personalized itinerary based on your destination, the number
           of travelers, budget, and trip duration. With smart recommendations,
@@ -72,7 +72,7 @@ const HowItWorks = () => {
           preferences.
         </p>{" "}
         <br />
-        <p className="text-xs md:text-xl text-cyan-900">
+        <p className="text-xs md:text-xl text-cyan-900 hidden md:block">
           Whether you're looking for a budget-friendly adventure or a luxurious
           getaway, our system optimizes your itinerary to balance time, cost,
           and experiences. Simply enter your details, and let AI handle the
